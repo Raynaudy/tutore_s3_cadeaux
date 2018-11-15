@@ -9,11 +9,8 @@
 
 CREATE TABLE Utilisateur(
         id_utilisateur Int  Auto_increment  NOT NULL ,
-        login          Varchar (16) NOT NULL ,
-        mdp            Varchar (16) NOT NULL ,
         nom            Varchar (16) NOT NULL ,
-        prenom         Varchar (16) NOT NULL ,
-        actif          Bool NOT NULL
+        prenom         Varchar (16) NOT NULL
 	,CONSTRAINT Utilisateur_PK PRIMARY KEY (id_utilisateur)
 )ENGINE=InnoDB;
 
@@ -63,6 +60,36 @@ CREATE TABLE Liste(
 	,CONSTRAINT Liste_PK PRIMARY KEY (id_liste)
 
 	,CONSTRAINT Liste_Utilisateur_FK FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id_utilisateur)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: UtilisateurActif
+#------------------------------------------------------------
+
+CREATE TABLE UtilisateurActif(
+        id_utilisateur Int NOT NULL ,
+        login          Varchar (50) NOT NULL ,
+        mdp            Varchar (300) NOT NULL ,
+        nom            Varchar (16) NOT NULL ,
+        prenom         Varchar (16) NOT NULL
+	,CONSTRAINT UtilisateurActif_PK PRIMARY KEY (id_utilisateur)
+
+	,CONSTRAINT UtilisateurActif_Utilisateur_FK FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id_utilisateur)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: UtilisateurInactif
+#------------------------------------------------------------
+
+CREATE TABLE UtilisateurInactif(
+        id_utilisateur Int NOT NULL ,
+        nom            Varchar (16) NOT NULL ,
+        prenom         Varchar (16) NOT NULL
+	,CONSTRAINT UtilisateurInactif_PK PRIMARY KEY (id_utilisateur)
+
+	,CONSTRAINT UtilisateurInactif_Utilisateur_FK FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id_utilisateur)
 )ENGINE=InnoDB;
 
 
