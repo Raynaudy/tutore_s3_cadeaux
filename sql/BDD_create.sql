@@ -23,13 +23,18 @@ CREATE TABLE Utilisateur(
 #------------------------------------------------------------
 
 CREATE TABLE Cadeau(
-        id_cadeau   Int  Auto_increment  NOT NULL ,
-        nom         Varchar (16) NOT NULL ,
-        description Varchar (100) NOT NULL ,
-        prix        Float NOT NULL ,
-        img         Varchar (100) NOT NULL ,
-        lien        Varchar (100) NOT NULL
+        id_cadeau                   Int  Auto_increment  NOT NULL ,
+        nom                         Varchar (16) NOT NULL ,
+        description                 Varchar (100) NOT NULL ,
+        prix                        Float NOT NULL ,
+        img                         Varchar (100) NOT NULL ,
+        lien                        Varchar (100) NOT NULL ,
+        id_utilisateur              Int ,
+        id_utilisateur_est_souhaite Int
 	,CONSTRAINT Cadeau_PK PRIMARY KEY (id_cadeau)
+
+	,CONSTRAINT Cadeau_Utilisateur_FK FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id_utilisateur)
+	,CONSTRAINT Cadeau_Utilisateur0_FK FOREIGN KEY (id_utilisateur_est_souhaite) REFERENCES Utilisateur(id_utilisateur)
 )ENGINE=InnoDB;
 
 
@@ -38,9 +43,12 @@ CREATE TABLE Cadeau(
 #------------------------------------------------------------
 
 CREATE TABLE Groupe(
-        id_groupe Int  Auto_increment  NOT NULL ,
-        nom       Varchar (100) NOT NULL
+        id_groupe      Int  Auto_increment  NOT NULL ,
+        nom            Varchar (100) NOT NULL ,
+        id_utilisateur Int NOT NULL
 	,CONSTRAINT Groupe_PK PRIMARY KEY (id_groupe)
+
+	,CONSTRAINT Groupe_Utilisateur_FK FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id_utilisateur)
 )ENGINE=InnoDB;
 
 
@@ -50,7 +58,7 @@ CREATE TABLE Groupe(
 
 CREATE TABLE Liste(
         id_liste       Int  Auto_increment  NOT NULL ,
-        nom            Varchar (100) NOT NULL ,
+        libelle        Varchar (100) NOT NULL ,
         id_utilisateur Int NOT NULL
 	,CONSTRAINT Liste_PK PRIMARY KEY (id_liste)
 
@@ -59,58 +67,60 @@ CREATE TABLE Liste(
 
 
 #------------------------------------------------------------
-# Table: cadeauListe
+# Table: fait_partie
 #------------------------------------------------------------
 
-CREATE TABLE cadeauListe(
+CREATE TABLE fait_partie(
         id_liste  Int NOT NULL ,
         id_cadeau Int NOT NULL
-	,CONSTRAINT cadeauListe_PK PRIMARY KEY (id_liste,id_cadeau)
+	,CONSTRAINT fait_partie_PK PRIMARY KEY (id_liste,id_cadeau)
 
-	,CONSTRAINT cadeauListe_Liste_FK FOREIGN KEY (id_liste) REFERENCES Liste(id_liste)
-	,CONSTRAINT cadeauListe_Cadeau0_FK FOREIGN KEY (id_cadeau) REFERENCES Cadeau(id_cadeau)
+	,CONSTRAINT fait_partie_Liste_FK FOREIGN KEY (id_liste) REFERENCES Liste(id_liste)
+	,CONSTRAINT fait_partie_Cadeau0_FK FOREIGN KEY (id_cadeau) REFERENCES Cadeau(id_cadeau)
 )ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
-# Table: cadeauUtilisateur
+# Table: est_partagee
 #------------------------------------------------------------
 
-CREATE TABLE cadeauUtilisateur(
-        id_cadeau      Int NOT NULL ,
-        id_utilisateur Int NOT NULL ,
-        achete         Bool NOT NULL
-	,CONSTRAINT cadeauUtilisateur_PK PRIMARY KEY (id_cadeau,id_utilisateur)
-
-	,CONSTRAINT cadeauUtilisateur_Cadeau_FK FOREIGN KEY (id_cadeau) REFERENCES Cadeau(id_cadeau)
-	,CONSTRAINT cadeauUtilisateur_Utilisateur0_FK FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id_utilisateur)
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: utilisateurGroupe
-#------------------------------------------------------------
-
-CREATE TABLE utilisateurGroupe(
-        id_groupe      Int NOT NULL ,
-        id_utilisateur Int NOT NULL
-	,CONSTRAINT utilisateurGroupe_PK PRIMARY KEY (id_groupe,id_utilisateur)
-
-	,CONSTRAINT utilisateurGroupe_Groupe_FK FOREIGN KEY (id_groupe) REFERENCES Groupe(id_groupe)
-	,CONSTRAINT utilisateurGroupe_Utilisateur0_FK FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id_utilisateur)
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: groupeListe
-#------------------------------------------------------------
-
-CREATE TABLE groupeListe(
+CREATE TABLE est_partagee(
         id_liste  Int NOT NULL ,
         id_groupe Int NOT NULL
-	,CONSTRAINT groupeListe_PK PRIMARY KEY (id_liste,id_groupe)
+	,CONSTRAINT est_partagee_PK PRIMARY KEY (id_liste,id_groupe)
 
-	,CONSTRAINT groupeListe_Liste_FK FOREIGN KEY (id_liste) REFERENCES Liste(id_liste)
-	,CONSTRAINT groupeListe_Groupe0_FK FOREIGN KEY (id_groupe) REFERENCES Groupe(id_groupe)
+	,CONSTRAINT est_partagee_Liste_FK FOREIGN KEY (id_liste) REFERENCES Liste(id_liste)
+	,CONSTRAINT est_partagee_Groupe0_FK FOREIGN KEY (id_groupe) REFERENCES Groupe(id_groupe)
 )ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: est_membre
+#------------------------------------------------------------
+
+CREATE TABLE est_membre(
+        id_groupe      Int NOT NULL ,
+        id_utilisateur Int NOT NULL
+	,CONSTRAINT est_membre_PK PRIMARY KEY (id_groupe,id_utilisateur)
+
+	,CONSTRAINT est_membre_Groupe_FK FOREIGN KEY (id_groupe) REFERENCES Groupe(id_groupe)
+	,CONSTRAINT est_membre_Utilisateur0_FK FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id_utilisateur)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: est_invite
+#------------------------------------------------------------
+
+CREATE TABLE est_invite(
+        id_utilisateur            Int NOT NULL ,
+        id_groupe                 Int NOT NULL ,
+        id_utilisateur_est_invite Int NOT NULL
+	,CONSTRAINT est_invite_PK PRIMARY KEY (id_utilisateur,id_groupe,id_utilisateur_est_invite)
+
+	,CONSTRAINT est_invite_Utilisateur_FK FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id_utilisateur)
+	,CONSTRAINT est_invite_Groupe0_FK FOREIGN KEY (id_groupe) REFERENCES Groupe(id_groupe)
+	,CONSTRAINT est_invite_Utilisateur1_FK FOREIGN KEY (id_utilisateur_est_invite) REFERENCES Utilisateur(id_utilisateur)
+)ENGINE=InnoDB;
+
 
