@@ -5,7 +5,7 @@ Dans le cadre du semestre 3 d'IUT Informatique, nous avons réalisé un site web
 
 ## Langages utilisés
 
-* [PHP](http://www.php.net/ - Langage de scripting (back-end)
+* [PHP] - Langage de scripting (back-end)
 * [HTML]/[CSS]/[JS] - Langage de mise en page (front-end)
 
 * [SQL] - Langage de communication avec la base de donnée
