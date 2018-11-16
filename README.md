@@ -6,7 +6,7 @@ Dans le cadre du semestre 3 d'IUT Informatique, nous avons réalisé un site web
 ## Langages utilisés
 
 * [PHP] - Langage de scripting (back-end)
-* [HTML]/[CSS]/[JS] - Langage de mise en page (front-end)
+* [HTML] / [CSS] / [JS] - Langage de mise en page (front-end)
 
 * [SQL] - Langage de communication avec la base de donnée
 
@@ -22,4 +22,4 @@ Dans le cadre du semestre 3 d'IUT Informatique, nous avons réalisé un site web
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE.md](LICENSE.md) file for details
