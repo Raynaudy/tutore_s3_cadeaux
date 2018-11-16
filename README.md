@@ -12,7 +12,7 @@ Dans le cadre du semestre 3 d'IUT Informatique, nous avons réalisé un site web
 
 
 
-## Authors
+## Auteurs
 
 * **Eugène Leclerc**
 * **Lise Jolicoeur**
