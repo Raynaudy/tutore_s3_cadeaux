@@ -1,6 +1,6 @@
 # Projet tutoré S3 - Gestion groupée de cadeaux de Noël
 
-Dans le cadre du semestre 3 d'IUT Informatique, nous avons réalisé un site web permettant de gérer les cadeaux de Noël suivant des contraintes précises (voir  [/Enonce](/Enonce)).
+Dans le cadre du semestre 3 d'IUT Informatique, nous avons réalisé un site web permettant de gérer les cadeaux de Noël suivant des contraintes précises (voir  [/Enonces](/Enonces)).
 
 
 ## Langages utilisés
