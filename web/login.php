@@ -17,17 +17,17 @@
 </head>
 <body>
 <body class="text-center">
-    <form class="form-signin rounded border border-primary">
+    <form class="form-signin rounded border border-danger">
       <h1 class="h4 mb-4 mt-1 font-weight-normal">Connectez vous sur <b>Gift</b>list</h1>
       <p>Connectez vous afin d'accéder à toutes les fonctionnalités de notre service</p>
 
       <label for="inputEmail" class="sr-only">Identifiant</label>
       
-      <input type="email" id="inputEmail" class="form-control" placeholder="Identifiant" required autofocus>
+      <input type="email" id="inputEmail" class="form-control bootstrap-overrides " placeholder="Identifiant" required autofocus>
       <label for="inputPassword" class="sr-only">Password</label>
       <input type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Se connecter !</button>
-      <p><small>Pas encore de compte ? <a href="">Clique ici !</a></small></p> 
+      <button class="btn btn-lg btn-danger btn-block" type="submit">Se connecter !</button>
+      <p><small>Pas encore de compte ? <a class="text-danger" href="signup.php">Clique ici !</a></small></p> 
       <p class="mt-3 mb-0 text-muted">&copy; 2018</p>
     </form>
   </body>
