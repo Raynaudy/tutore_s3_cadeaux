@@ -1,0 +1,17 @@
+General
+- Inscription
+- Creer compte enfant/vieux
+
+Cadeau
+- Creer/supprimer cadeau
+- Indiquer/désindiquer l'achat d'un cadeau
+- Ajouter/retirer un cadeau d'une liste
+
+Liste
+- Creer/supprimer liste
+- Partager/retirer une liste à un groupe
+
+Groupe
+- Creer/supprimer groupe
+- Inviter un membre dans un groupe
+- Accepter/refuser l'invitation
