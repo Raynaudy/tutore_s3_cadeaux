@@ -18,15 +18,19 @@
 <body>
 <body class="text-center">
     <form class="form-signin rounded border border-primary">
-      <h1 class="h4 mb-4 mt-1 font-weight-normal">Connectez vous sur <b>Gift</b>list</h1>
-      <p>Connectez vous afin d'accéder à toutes les fonctionnalités de notre service</p>
+      <h2 class=" mb-4 mt-1 font-weight-normal">Bienvenue sur <b>Gift</b>list</h2>
+      <p>Créez vous un compte afin d'accéder à toutes les fonctionnalités de notre service</p>
 
-      <label for="inputEmail" class="sr-only">Identifiant</label>
+      <label for="inputNom" class="float-left mb-1">Nom complet : </label>
+      <input type="text" id="inputNom" class="form-control mb-1" placeholder="" required autofocus>
       
-      <input type="email" id="inputEmail" class="form-control" placeholder="Identifiant" required autofocus>
-      <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Se connecter !</button>
+      <label for="input" class="float-left mb-1">Courriel :</label>
+      <input type="email" id="inputEmail" class="form-control mb-1" placeholder="" required autofocus>
+
+      <label for="inputPassword" class="float-left mb-1">Mot de passe :</label>
+      <input type="password" id="inputPassword" class="form-control mb-3" placeholder="" required>
+      
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Créer mon compte !</button>
       <p><small>Pas encore de compte ? <a href="">Clique ici !</a></small></p> 
       <p class="mt-3 mb-0 text-muted">&copy; 2018</p>
     </form>

@@ -19,6 +19,7 @@
 </head>
 <body>
     <a href="login.php">Login</a>
+    <a href="signup.php">signup</a>
     
 </body>
 </html>
