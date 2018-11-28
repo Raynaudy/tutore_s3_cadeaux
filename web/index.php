@@ -19,7 +19,7 @@
 </head>
 <body>
     <?php
-        include('header.inc.php');
+        include('navbar.inc.php');
     ?>
 
     <a href="login.php">Login</a>
