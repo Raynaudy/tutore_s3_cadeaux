@@ -21,14 +21,20 @@
       <h2 class=" mb-4 mt-1 font-weight-normal">Bienvenue sur <b>Gift</b>list</h2>
       <p>Créez vous un compte afin d'accéder à toutes les fonctionnalités de notre service</p>
 
-      <label for="inputNom" class="float-left mb-1">Nom complet : </label>
+      <label for="inputNom" class="float-left mb-1">Nom : </label>
       <input type="text" id="inputNom" class="form-control mb-1" placeholder="" required autofocus>
       
-      <label for="input" class="float-left mb-1">Courriel :</label>
+      <label for="inputPrenom" class="float-left mb-1">Prénom : </label>
+      <input type="text" id="inputPrenom" class="form-control mb-1" placeholder="" required autofocus>
+
+      <label for="inputEmail" class="float-left mb-1">Courriel :</label>
       <input type="email" id="inputEmail" class="form-control mb-1" placeholder="" required autofocus>
 
       <label for="inputPassword" class="float-left mb-1">Mot de passe :</label>
       <input type="password" id="inputPassword" class="form-control mb-3" placeholder="" required>
+
+       <label for="inputPasswordConfirmation" class="float-left mb-1">Confirmation :</label>
+      <input type="password" id="inputPasswordConfirmation" class="form-control mb-3" placeholder="" required>
       
       <button class="btn btn-lg btn-primary btn-block" type="submit">Créer mon compte !</button>
       <p><small>Pas encore de compte ? <a href="">Clique ici !</a></small></p> 
