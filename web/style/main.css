@@ -6,6 +6,13 @@ body {
     background-size: cover;
   }
 
+
+  /* NAVBAR COLOR */
   .transp {
       background-color: rgba(189, 195, 199,0.5);
+  }
+
+
+  .fa-bars {
+      color : black;
   }
