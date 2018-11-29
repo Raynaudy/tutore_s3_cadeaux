@@ -1,3 +1,8 @@
+<?php 
+    echo "a";
+    include('libs/connect.php');
+?>
+
 <html lang="fr">
 <head>
     <meta charset="utf-8" />
@@ -35,15 +40,9 @@
        <label for="inputPasswordConfirmation" class="float-left mb-1">Confirmation :</label>
       <input type="password" id="inputPasswordConfirmation" name="mdp_confirm" class="form-control bootstrap-overrides mb-3 rounded" placeholder="" required>
       
-     
-      
-      <button class="btn btn-lg btn-danger btn-block" type="submit">Créer mon compte !</button>
-      <p><small>Compte existant ? <a class="text-danger" href="login.php">Clique ici !</a></small></p> 
-      <p class="mt-3 mb-0 text-muted">&copy; 2018</p>
-    </form>
-    <?php
+      <?php
 
-require_once("libs/connect.php");
+//require_once("libs/connect.php");
 
 if('POST' == $_SERVER['REQUEST_METHOD'])
 {
@@ -90,6 +89,12 @@ if('POST' == $_SERVER['REQUEST_METHOD'])
 }
 
 ?>
+      
+      <button class="btn btn-lg btn-danger btn-block" type="submit">Créer mon compte !</button>
+      <p><small>Compte existant ? <a class="text-danger" href="login.php">Clique ici !</a></small></p> 
+      <p class="mt-3 mb-0 text-muted">&copy; 2018</p>
+    </form>
+    
   </body>
 
     
