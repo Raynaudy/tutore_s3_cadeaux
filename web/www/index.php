@@ -22,10 +22,10 @@
 </head>
 <body>
     <?php
-        include('navbar.inc.php');
+        include('includes/navbar.inc.php');
     ?>
     <?php
-        include('header.inc.php');
+        include('includes/header.inc.php');
     ?>
 
     
