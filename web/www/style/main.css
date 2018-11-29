@@ -5,7 +5,11 @@ body {
     -o-background-size: cover;
     background-size: cover;
     margin:0;
-  padding:0;
+    padding:0;
+
+    /*android*/
+    height: 100%;
+    overflow: hidden;
   }
 
 
