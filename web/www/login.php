@@ -26,64 +26,11 @@
       <input type="text" name="login" id="inputEmail" class="form-control bootstrap-overrides " placeholder="Identifiant" required autofocus>
       <label for="inputPassword" class="sr-only">Password</label>
       <input type="password" id="inputPassword" name="mdp" class="form-control" placeholder="Mot de passe" required>
-      
-      <?php
-
-        require_once("libs/connect.php");
-
-        if('POST' == $_SERVER['REQUEST_METHOD'])
-        {
-            $login =  mysqli_real_escape_string($co,$_POST['login']);
-            $mdp =  mysqli_real_escape_string($co,$_POST['mdp']);
-                
-
-            if(preg_match("#^[^@]+@[^@]+\.[a-zA-Z]{2,3}$#",$login))
-            {
-                $getUser = "SELECT id_utilisateur FROM UtilisateurActif WHERE login = '$login' AND mdp = '$mdp'";
-                $result = mysqli_query($co,$getUser);
-                
-                if(mysqli_num_rows($result) < 1)
-                {
-                    echo '<p class="alert alert-danger">Login ou mot de passe incorrect ! Réessayez.</p>';
-                }
-                else
-                {
-                    $result = mysqli_fetch_assoc($result);
-                    $id_utilisateur = $result['id_utilisateur'];
-                    session_start();
-                    $_SESSION['id_utilisateur'] = $id_utilisateur;
-                    header("Location:libs/pagecheck.php");
-                }
-            }
-            else
-            {
-                $getUser = "SELECT id_utilisateur FROM UtilisateurActif WHERE login LIKE '$login@%' AND mdp = '$mdp'";
-                $result = mysqli_query($co,$getUser);
-                
-                if(mysqli_num_rows($result) < 1)
-                {
-                    echo '<p class="alert alert-danger">Login ou mot de passe incorrect ! Réessayez.</p>';
-                }
-                else
-                {
-                    $result = mysqli_fetch_assoc($result);
-                    $id_utilisateur = $result['id_utilisateur'];
-                    session_start();
-                    $_SESSION['id_utilisateur'] = $id_utilisateur;
-                    header("Location:libs/pagecheck.php");
-                }
-            }
-        }
-        ?>
-      
       <button class="btn btn-lg btn-danger btn-block" type="submit">Se connecter !</button>
       <p><small>Pas encore de compte ? <a class="text-danger" href="signup.php">Clique ici !</a></small></p> 
       <p class="mt-3 mb-0 text-muted">&copy; 2018</p>
     </form>
 
-<<<<<<< HEAD
-     
-=======
      <?php
 
 require_once("libs/connect.php");
@@ -146,7 +93,6 @@ if('POST' == $_SERVER['REQUEST_METHOD'])
     }
  }
 ?>
->>>>>>> 30cb9f72fc63f36a759b78dc65140f8605305965
   </body>
 
     
