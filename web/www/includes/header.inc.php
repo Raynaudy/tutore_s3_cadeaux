@@ -1,11 +1,11 @@
 <header class="masthead ">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-4">
                 <div class="content-box">
                 </div>
             </div>
-        <div class="col-sm-6">
+        <div class="col-sm-8">
             <div class="content-box absolute">
                 <div class="text-right red">
                     <div class="h1">Bienvenue, </div>
@@ -19,4 +19,6 @@
             </div>
         </div>
     </div>
-</header>
+</header> 
+
+

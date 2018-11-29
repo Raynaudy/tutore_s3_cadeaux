@@ -19,7 +19,7 @@ body {
   }
 
   .absolute {
-      margin-top : 50%;
+      margin-top : 30%;
   }
 
   @media (max-width: 575.98px) { 
@@ -30,17 +30,9 @@ body {
 
 
 .red {
-    color : #f7f7f5;
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e53b49+1,e8616e+100 */
-    background: #e53b49; /* Old browsers */
-    background: -moz-linear-gradient(left, #e53b49 1%, #e8616e 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(left, #e53b49 1%,#e8616e 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to right, #e53b49 1%,#e8616e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e53b49', endColorstr='#e8616e',GradientType=1 ); /* IE6-9 */
-    
-    border-radius: 5px;
-    padding-left: 0em;
-    padding-right: 1em;
-    padding-top: 1em;
-    padding-bottom: 1em;
+    border-right: 5px solid #BE2525;
+  padding: 15px 40px;
+  color: #1b8547;
 }
+
+
