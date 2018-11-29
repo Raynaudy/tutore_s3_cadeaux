@@ -1,9 +1,11 @@
 body { 
-    background: url(../img/bg-login.jpg) no-repeat center center fixed; 
+    background: url(../img/bg-login.jpg) no-repeat center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    margin:0;
+  padding:0;
   }
 
 
