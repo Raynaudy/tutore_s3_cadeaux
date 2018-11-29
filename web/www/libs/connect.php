@@ -2,10 +2,10 @@
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
 
-    $host = "yvainfrkab2018.mysql.db";
-    $user = "yvainfrkab2018";
-    $bdd = "yvainfrkab2018";
-    $passwd = "ELSprojets3";
+    $host = "localhost";
+    $user = "projettutore";
+    $bdd = "projettutore";
+    $passwd = "milkshake";
 
     $co = mysqli_connect($host,$user,$passwd,$bdd) or die("erreur de connexion");
 
