@@ -81,7 +81,72 @@
       <p class="mt-3 mb-0 text-muted">&copy; 2018</p>
     </form>
 
+<<<<<<< HEAD
      
+=======
+     <?php
+
+require_once("libs/connect.php");
+
+if('POST' == $_SERVER['REQUEST_METHOD'])
+{
+    $login =  mysqli_real_escape_string($co,$_POST['login']);
+    $mdp =  mysqli_real_escape_string($co,$_POST['mdp']);
+        
+
+    if(preg_match("#^[^@]+@[^@]+\.[a-zA-Z]{2,3}$#",$login))
+    {
+    	$getUser = "SELECT id_utilisateur, mdp FROM UtilisateurActif WHERE login = '$login'";
+    	$result = mysqli_query($co,$getUser);
+
+    	if(mysqli_num_rows($result) < 1)
+    	{
+    		echo '<p class="alert alert-danger">Login incorrect ! Réessayez.</p>';
+    	}
+    	else
+    	{
+    		$result = mysqli_fetch_assoc($result);
+    		if(password_verify($mdp, $result['mdp']))
+    		{
+    			$id_utilisateur = $result['id_utilisateur'];
+            	session_start();
+            	$_SESSION['id_utilisateur'] = $id_utilisateur;
+            	header("Location:libs/pagecheck.php");
+    		}
+    		else 
+    		{
+    			echo '<p class="alert alert-danger">Mot de passe incorrect ! Réessayez.</p>';
+    		}
+    	}
+    }
+    else
+    {
+    	$getUser = "SELECT id_utilisateur,mdp FROM UtilisateurActif WHERE login LIKE '$login@%'";
+    	$result = mysqli_query($co,$getUser);
+
+    	if(mysqli_num_rows($result) < 1)
+    	{
+    		echo '<p class="alert alert-danger">Login incorrect ! Réessayez.</p>';
+    	}
+    	else
+    	{
+    		$result = mysqli_fetch_assoc($result);
+    		if(password_verify($mdp, $result['mdp']))
+    		{
+    			$id_utilisateur = $result['id_utilisateur'];
+           		session_start();
+            	$_SESSION['id_utilisateur'] = $id_utilisateur;
+            	header("Location:libs/pagecheck.php");
+    		}
+    		else 
+    		{
+    			echo '<p class="alert alert-danger">Mot de passe incorrect ! Réessayez.</p>';
+    		}
+    	}
+    }
+ }
+?>
+>>>>>>> 30cb9f72fc63f36a759b78dc65140f8605305965
   </body>
 
     

@@ -1,3 +1,10 @@
+<?php 
+
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+    require_once('libs/connect.php');
+?>
+
 <html lang="fr">
 <head>
     <meta charset="utf-8" />
@@ -37,6 +44,7 @@
       
       <?php
 
+<<<<<<< HEAD
             require_once("libs/connect.php");
 
             if('POST' == $_SERVER['REQUEST_METHOD'])
@@ -81,15 +89,66 @@
                         }
                     }
                 }
+=======
+//require_once("libs/connect.php");
+
+if('POST' == $_SERVER['REQUEST_METHOD'])
+{
+    $mail = $_POST['login'];
+    $mdp = mysqli_real_escape_string($co,$_POST['mdp']);
+    $confirm = mysqli_real_escape_string($co,$_POST['mdp_confirm']);
+    $nom = $_POST['nom'];
+    $prenom = $_POST['prenom'];
+    
+    if($mdp != $confirm)
+    {
+        echo '<p class="alert alert-danger">Reconfirmez le mot de passe.</p>';
+    }
+    else
+    {
+        $checkUsername = "SELECT login FROM UtilisateurActif WHERE login = '$mail'";
+        $result = mysqli_query($co,$checkUsername);
+        
+        if(mysqli_num_rows($result) >= 1)
+        {
+            echo '<p class="alert alert-danger">Ce mail est déjà pris ! Saisissez-en un autre.</p>';
+        }
+        else
+        {
+            if(!preg_match("#^[^@]+@[^@]+\.[a-zA-Z]{2,3}$#",$mail))
+            {
+                echo '<p class="alert alert-danger">Mail érroné ! Rappel : abcdef@xyz.com</p>';
+            }
+            else    
+            {
+                $query = "INSERT INTO Utilisateur(nom,prenom) VALUES ('$nom', '$prenom')";
+                $result = mysqli_query($co,$query);
+                $id_utilisateur = mysqli_insert_id($co);
+
+                //Hashage du password avant insertion
+                $mdp = password_hash($mdp,PASSWORD_DEFAULT);
+                $query = "INSERT INTO UtilisateurActif(id_utilisateur,login,mdp,nom,prenom) VALUES ('$id_utilisateur','$mail','$mdp','$nom','$prenom')";
+                $result=mysqli_query($co,$query);
+                
+                header("Location:libs/pagecheck.php");
+>>>>>>> 30cb9f72fc63f36a759b78dc65140f8605305965
             }
 
+<<<<<<< HEAD
       ?>
+=======
+?>
+>>>>>>> 30cb9f72fc63f36a759b78dc65140f8605305965
       
       <button class="btn btn-lg btn-danger btn-block" type="submit">Créer mon compte !</button>
       <p><small>Compte existant ? <a class="text-danger" href="login.php">Clique ici !</a></small></p> 
       <p class="mt-3 mb-0 text-muted">&copy; 2018</p>
     </form>
+<<<<<<< HEAD
    
+=======
+    
+>>>>>>> 30cb9f72fc63f36a759b78dc65140f8605305965
   </body>
 
     
