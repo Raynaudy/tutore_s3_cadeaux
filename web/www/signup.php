@@ -1,6 +1,8 @@
 <?php 
-    echo "a";
-    include('libs/connect.php');
+
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+    require_once('libs/connect.php');
 ?>
 
 <html lang="fr">
