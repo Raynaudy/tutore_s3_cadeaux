@@ -1,13 +1,13 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-require_once('libs/connect.php');
+  error_reporting(E_ALL);
+  ini_set('display_errors', 1);
+  require_once('libs/connect.php');
 
 ?>
 
 <html lang="fr">
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Login - Giftlist</title>
@@ -21,68 +21,71 @@ require_once('libs/connect.php');
 
     <link rel="stylesheet" type="text/css" media="screen" href="style/login.css" />
 
-</head>
-<body>
-    <body class="text-center">
-        <form class="form-signin rounded border border-danger" method = "post">
-            <h1 class="h4 mb-4 mt-1 font-weight-normal">Connectez vous sur <b>Gift</b>list</h1>
-            <p>Connectez vous afin d'accéder à toutes les fonctionnalités de notre service</p>
+  </head>
+  <body class="text-center">
+    <form class="form-signin rounded border border-danger" method = "post">
+      <h1 class="h4 mb-4 mt-1 font-weight-normal">Connectez vous sur <b>Gift</b>list</h1>
+      <p>Connectez vous afin d'accéder à toutes les fonctionnalités de notre service</p>
 
-            <label for="inputEmail" class="sr-only">Identifiant</label>
-            <input type="text" name="login" id="inputEmail" class="form-control bootstrap-overrides " placeholder="Identifiant" required autofocus>
-            <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" name="mdp" class="form-control" placeholder="Mot de passe" required>
-            <button class="btn btn-lg btn-danger btn-block" type="submit">Se connecter !</button>
-            <p><small>Pas encore de compte ? <a class="text-danger" href="signup.php">Clique ici !</a></small></p> 
-            <p class="mt-3 mb-0 text-muted">&copy; 2018</p>
-        </form>
+      <label for="inputEmail" class="sr-only">Identifiant</label>
+      <input type="text" name="login" id="inputEmail" class="form-control bootstrap-overrides " placeholder="Identifiant" required autofocus>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="inputPassword" name="mdp" class="form-control" placeholder="Mot de passe" required>
+      <button class="btn btn-lg btn-danger btn-block" type="submit">Se connecter !</button>
+      <p><small>Pas encore de compte ? <a class="text-danger" href="signup.php">Clique ici !</a></small></p> 
+      <p class="mt-3 mb-0 text-muted">&copy; 2018</p>
+    </form>
 
-        <?php
+    <?php
 
-		require_once("libs/connect.php");
+	  require_once("libs/connect.php");
 
-		if ('POST' == $_SERVER['REQUEST_METHOD']) {
-		    $login = mysqli_real_escape_string($co, $_POST['login']);
-		    $mdp   = mysqli_real_escape_string($co, $_POST['mdp']);
+	  if ('POST' == $_SERVER['REQUEST_METHOD']) {
+		$login = mysqli_real_escape_string($co, $_POST['login']);
+		$mdp   = mysqli_real_escape_string($co, $_POST['mdp']);
 		    
 		    
-		    if (preg_match("#^[^@]+@[^@]+\.[a-zA-Z]{2,3}$#", $login)) {
-		        $getUser = "SELECT id_utilisateur, mdp FROM UtilisateurActif WHERE login = '$login'";
-		        $result  = mysqli_query($co, $getUser);
+		if (preg_match("#^[^@]+@[^@]+\.[a-zA-Z]{2,3}$#", $login)) {
+		  $getUser = "SELECT id_utilisateur, mdp FROM UtilisateurActif WHERE login = '$login'";
+		  $result  = mysqli_query($co, $getUser);
 		        
-		        if (mysqli_num_rows($result) < 1) {
-		            echo '<p class="alert alert-danger">Login incorrect ! Réessayez.</p>';
-		        } else {
-		            $result = mysqli_fetch_assoc($result);
-		            if (password_verify($mdp, $result['mdp'])) {
-		                $id_utilisateur = $result['id_utilisateur'];
-		                session_start();
-		                $_SESSION['id_utilisateur'] = $id_utilisateur;
-		                header("Location:libs/pagecheck.php");
-		            } else {
-		                echo '<p class="alert alert-danger">Mot de passe incorrect ! Réessayez.</p>';
-		            }
-		        }
-		    } else {
-		        $getUser = "SELECT id_utilisateur,mdp FROM UtilisateurActif WHERE login LIKE '$login@%'";
-		        $result  = mysqli_query($co, $getUser);
-		        
-		        if (mysqli_num_rows($result) < 1) {
-		            echo '<p class="alert alert-danger">Login incorrect ! Réessayez.</p>';
-		        } else {
-		            $result = mysqli_fetch_assoc($result);
-		            if (password_verify($mdp, $result['mdp'])) {
-		                $id_utilisateur = $result['id_utilisateur'];
-		                session_start();
-		                $_SESSION['id_utilisateur'] = $id_utilisateur;
-		                header("Location:libs/pagecheck.php");
-		            } else {
-		                echo '<p class="alert alert-danger">Mot de passe incorrect ! Réessayez.</p>';
-		            }
-		        }
+		  if (mysqli_num_rows($result) < 1) {
+		    echo '<p class="alert alert-danger">Login incorrect ! Réessayez.</p>';
+		  } 
+		  else {
+		    $result = mysqli_fetch_assoc($result);
+		    if (password_verify($mdp, $result['mdp'])) {
+		      $id_utilisateur = $result['id_utilisateur'];
+		      session_start();
+		      $_SESSION['id_utilisateur'] = $id_utilisateur;
+		      header("Location:libs/pagecheck.php");
+		    } 
+		    else {
+		      echo '<p class="alert alert-danger">Mot de passe incorrect ! Réessayez.</p>';
 		    }
+		  }
+		} 
+		else {
+		  $getUser = "SELECT id_utilisateur,mdp FROM UtilisateurActif WHERE login LIKE '$login@%'";
+		  $result  = mysqli_query($co, $getUser);
+		        
+		  if (mysqli_num_rows($result) < 1) {
+		    echo '<p class="alert alert-danger">Login incorrect ! Réessayez.</p>';
+		  } 
+		  else {
+		    $result = mysqli_fetch_assoc($result);
+		    if (password_verify($mdp, $result['mdp'])) {
+		      $id_utilisateur = $result['id_utilisateur'];
+		      session_start();
+		      $_SESSION['id_utilisateur'] = $id_utilisateur;
+		      header("Location:libs/pagecheck.php");
+		    } 
+		    else {
+		      echo '<p class="alert alert-danger">Mot de passe incorrect ! Réessayez.</p>';
+		    }
+		  }
 		}
-		?>
-   </body>
-</body>
+	  }
+	?>
+  </body>
 </html>
