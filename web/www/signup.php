@@ -32,64 +32,64 @@
       <label for="inputPassword" class="float-left mb-1">Mot de passe :</label>
       <input type="password" id="inputPassword" name="mdp" class="form-control bootstrap-overrides mb-3 rounded" placeholder="" required>
 
-       <label for="inputPasswordConfirmation" class="float-left mb-1">Confirmation :</label>
+      <label for="inputPasswordConfirmation" class="float-left mb-1">Confirmation :</label>
       <input type="password" id="inputPasswordConfirmation" name="mdp_confirm" class="form-control bootstrap-overrides mb-3 rounded" placeholder="" required>
       
-     
+      <?php
+
+            require_once("libs/connect.php");
+
+            if('POST' == $_SERVER['REQUEST_METHOD'])
+            {
+                $mail = $_POST['login'];
+                $mdp = mysqli_real_escape_string($co,$_POST['mdp']);
+                $confirm = mysqli_real_escape_string($co,$_POST['mdp_confirm']);
+                $nom = $_POST['nom'];
+                $prenom = $_POST['prenom'];
+                
+                //ajouter un cryptage
+                
+                if($mdp != $confirm)
+                {
+                    echo '<p class="alert alert-danger">Reconfirmez le mot de passe.</p>';
+                }
+                else
+                {
+                    $checkUsername = "SELECT login FROM UtilisateurActif WHERE login = '$mail'";
+                    $result = mysqli_query($co,$checkUsername);
+                    
+                    if(mysqli_num_rows($result) >= 1)
+                    {
+                        echo '<p class="alert alert-danger">Ce mail est déjà pris ! Saisissez-en un autre.</p>';
+                    }
+                    else
+                    {
+                        if(!preg_match("#^[^@]+@[^@]+\.[a-zA-Z]{2,3}$#",$mail))
+                        {
+                            echo '<p class="alert alert-danger">Mail érroné ! Rappel : abcdef@xyz.com</p>';
+                        }
+                        else    
+                        {
+                            $query = "INSERT INTO Utilisateur(nom,prenom) VALUES ('$nom', '$prenom')";
+                            $result = mysqli_query($co,$query);
+                            $id_utilisateur = mysqli_insert_id($co);
+
+                            $query = "INSERT INTO UtilisateurActif(id_utilisateur,login,mdp,nom,prenom) VALUES ('$id_utilisateur','$mail','$mdp','$nom','$prenom')";
+                            $result=mysqli_query($co,$query);
+                            
+                            header("Location:pagecheck.php");
+                        }
+                    }
+                }
+            }
+
+      ?>
       
       <button class="btn btn-lg btn-danger btn-block" type="submit">Créer mon compte !</button>
       <p><small>Compte existant ? <a class="text-danger" href="login.php">Clique ici !</a></small></p> 
       <p class="mt-3 mb-0 text-muted">&copy; 2018</p>
     </form>
-    <?php
-
-require_once("libs/connect.php");
-
-if('POST' == $_SERVER['REQUEST_METHOD'])
-{
-    $mail = $_POST['login'];
-    $mdp = mysqli_real_escape_string($co,$_POST['mdp']);
-    $confirm = mysqli_real_escape_string($co,$_POST['mdp_confirm']);
-    $nom = $_POST['nom'];
-    $prenom = $_POST['prenom'];
-    
-    //ajouter un cryptage
-    
-    if($mdp != $confirm)
-    {
-        echo '<p class="alert alert-danger">Reconfirmez le mot de passe.</p>';
-    }
-    else
-    {
-        $checkUsername = "SELECT login FROM UtilisateurActif WHERE login = '$mail'";
-        $result = mysqli_query($co,$checkUsername);
-        
-        if(mysqli_num_rows($result) >= 1)
-        {
-            echo '<p class="alert alert-danger">Ce mail est déjà pris ! Saisissez-en un autre.</p>';
-        }
-        else
-        {
-            if(!preg_match("#^[^@]+@[^@]+\.[a-zA-Z]{2,3}$#",$mail))
-            {
-                echo '<p class="alert alert-danger">Mail érroné ! Rappel : abcdef@xyz.com</p>';
-            }
-            else    
-            {
-                $query = "INSERT INTO Utilisateur(nom,prenom) VALUES ('$nom', '$prenom')";
-                $result = mysqli_query($co,$query);
-                $id_utilisateur = mysqli_insert_id($co);
-
-                $query = "INSERT INTO UtilisateurActif(id_utilisateur,login,mdp,nom,prenom) VALUES ('$id_utilisateur','$mail','$mdp','$nom','$prenom')";
-                $result=mysqli_query($co,$query);
-                
-                header("Location:pagecheck.php");
-            }
-        }
-    }
-}
-
-?>
+   
   </body>
 
     
