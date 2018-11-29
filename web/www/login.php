@@ -43,39 +43,53 @@ if('POST' == $_SERVER['REQUEST_METHOD'])
 
     if(preg_match("#^[^@]+@[^@]+\.[a-zA-Z]{2,3}$#",$login))
     {
-        $getUser = "SELECT id_utilisateur FROM UtilisateurActif WHERE login = '$login' AND mdp = '$mdp'";
-        $result = mysqli_query($co,$getUser);
-        
-        if(mysqli_num_rows($result) < 1)
-        {
-            echo '<p class="alert alert-danger">Login ou mot de passe incorrect ! Réessayez.</p>';
-        }
-        else
-        {
-            $result = mysqli_fetch_assoc($result);
-            $id_utilisateur = $result['id_utilisateur'];
-            session_start();
-            $_SESSION['id_utilisateur'] = $id_utilisateur;
-            header("Location:libs/pagecheck.php");
-        }
+    	$getUser = "SELECT id_utilisateur, mdp FROM UtilisateurActif WHERE login = '$login'";
+    	$result = mysqli_query($co,$getUser);
+
+    	if(mysqli_num_rows($result) < 1)
+    	{
+    		echo '<p class="alert alert-danger">Login incorrect ! Réessayez.</p>';
+    	}
+    	else
+    	{
+    		$result = mysqli_fetch_assoc($result);
+    		if(password_verify($mdp, $result['mdp']))
+    		{
+    			$id_utilisateur = $result['id_utilisateur'];
+            	session_start();
+            	$_SESSION['id_utilisateur'] = $id_utilisateur;
+            	header("Location:libs/pagecheck.php");
+    		}
+    		else 
+    		{
+    			echo '<p class="alert alert-danger">Mot de passe incorrect ! Réessayez.</p>';
+    		}
+    	}
     }
     else
     {
-        $getUser = "SELECT id_utilisateur FROM UtilisateurActif WHERE login LIKE '$login@%' AND mdp = '$mdp'";
-        $result = mysqli_query($co,$getUser);
-        
-        if(mysqli_num_rows($result) < 1)
-        {
-            echo '<p class="alert alert-danger">Login ou mot de passe incorrect ! Réessayez.</p>';
-        }
-        else
-        {
-            $result = mysqli_fetch_assoc($result);
-            $id_utilisateur = $result['id_utilisateur'];
-            session_start();
-            $_SESSION['id_utilisateur'] = $id_utilisateur;
-            header("Location:libs/pagecheck.php");
-        }
+    	$getUser = "SELECT id_utilisateur,mdp FROM UtilisateurActif WHERE login LIKE '$login@%'";
+    	$result = mysqli_query($co,$getUser);
+
+    	if(mysqli_num_rows($result) < 1)
+    	{
+    		echo '<p class="alert alert-danger">Login incorrect ! Réessayez.</p>';
+    	}
+    	else
+    	{
+    		$result = mysqli_fetch_assoc($result);
+    		if(password_verify($mdp, $result['mdp']))
+    		{
+    			$id_utilisateur = $result['id_utilisateur'];
+           		session_start();
+            	$_SESSION['id_utilisateur'] = $id_utilisateur;
+            	header("Location:libs/pagecheck.php");
+    		}
+    		else 
+    		{
+    			echo '<p class="alert alert-danger">Mot de passe incorrect ! Réessayez.</p>';
+    		}
+    	}
     }
  }
 ?>

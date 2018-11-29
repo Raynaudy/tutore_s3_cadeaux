@@ -52,8 +52,6 @@ if('POST' == $_SERVER['REQUEST_METHOD'])
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
     
-    //ajouter un cryptage
-    
     if($mdp != $confirm)
     {
         echo '<p class="alert alert-danger">Reconfirmez le mot de passe.</p>';
@@ -79,10 +77,12 @@ if('POST' == $_SERVER['REQUEST_METHOD'])
                 $result = mysqli_query($co,$query);
                 $id_utilisateur = mysqli_insert_id($co);
 
+                //Hashage du password avant insertion
+                $mdp = password_hash($mdp,PASSWORD_DEFAULT);
                 $query = "INSERT INTO UtilisateurActif(id_utilisateur,login,mdp,nom,prenom) VALUES ('$id_utilisateur','$mail','$mdp','$nom','$prenom')";
                 $result=mysqli_query($co,$query);
                 
-                header("Location:pagecheck.php");
+                header("Location:libs/pagecheck.php");
             }
         }
     }
