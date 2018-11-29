@@ -59,7 +59,7 @@
                             $result = mysqli_query($co, $checkUsername);
                                             
                             if (mysqli_num_rows($result) >= 1) {
-                                    echo '<p class="alert alert-danger">' . "Il existe un utilisateur inscrit avec le mail : $mail " . '</p>';
+                                    echo '<p class="alert alert-danger">' . "Il existe déjà un utilisateur inscrit avec le mail : $mail " . '</p>';
                             } 
                             else {
                                     if (!preg_match("#^[^@]+@[^@]+\.[a-zA-Z]{2,3}$#", $mail)) {
