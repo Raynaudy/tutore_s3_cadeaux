@@ -33,7 +33,7 @@
 
      <?php
 
-require_once("connect.php");
+require_once("libs/connect.php");
 
 if('POST' == $_SERVER['REQUEST_METHOD'])
 {
@@ -56,7 +56,7 @@ if('POST' == $_SERVER['REQUEST_METHOD'])
             $id_utilisateur = $result['id_utilisateur'];
             session_start();
             $_SESSION['id_utilisateur'] = $id_utilisateur;
-            header("Location:pagecheck.php");
+            header("Location:libs/pagecheck.php");
         }
     }
     else
@@ -74,7 +74,7 @@ if('POST' == $_SERVER['REQUEST_METHOD'])
             $id_utilisateur = $result['id_utilisateur'];
             session_start();
             $_SESSION['id_utilisateur'] = $id_utilisateur;
-            header("Location:pagecheck.php");
+            header("Location:libs/pagecheck.php");
         }
     }
  }
