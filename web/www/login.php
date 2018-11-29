@@ -31,12 +31,8 @@
       <input type="text" name="login" id="inputEmail" class="form-control bootstrap-overrides " placeholder="Identifiant" required autofocus>
       <label for="inputPassword" class="sr-only">Password</label>
       <input type="password" id="inputPassword" name="mdp" class="form-control" placeholder="Mot de passe" required>
-      <button class="btn btn-lg btn-danger btn-block" type="submit">Se connecter !</button>
-      <p><small>Pas encore de compte ? <a class="text-danger" href="signup.php">Clique ici !</a></small></p> 
-      <p class="mt-3 mb-0 text-muted">&copy; 2018</p>
-    </form>
-
-    <?php
+      
+      <?php
 
 	  require_once("libs/connect.php");
 
@@ -87,5 +83,11 @@
 		}
 	  }
 	?>
+      <button class="btn btn-lg btn-danger btn-block" type="submit">Se connecter !</button>
+      <p><small>Pas encore de compte ? <a class="text-danger" href="signup.php">Clique ici !</a></small></p> 
+      <p class="mt-3 mb-0 text-muted">&copy; 2018</p>
+    </form>
+
+    
   </body>
 </html>

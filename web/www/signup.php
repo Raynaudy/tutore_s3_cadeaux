@@ -44,45 +44,45 @@
                 
         <?php
 
-					if ('POST' == $_SERVER['REQUEST_METHOD']) {
-						$mail    = $_POST['login'];
-						$mdp     = mysqli_real_escape_string($co, $_POST['mdp']);
-						$confirm = mysqli_real_escape_string($co, $_POST['mdp_confirm']);
-						$nom     = $_POST['nom'];
-						$prenom  = $_POST['prenom'];
-								    
-						if ($mdp != $confirm) {
-							echo '<p class="alert alert-danger">Reconfirmez le mot de passe.</p>';
-						} 
-						else {
-							$checkUsername = "SELECT login FROM UtilisateurActif WHERE login = '$mail'";
-							$result = mysqli_query($co, $checkUsername);
-								        
-							if (mysqli_num_rows($result) >= 1) {
-								echo '<p class="alert alert-danger">Ce mail est déjà pris ! Saisissez-en un autre.</p>';
-							} 
-							else {
-								if (!preg_match("#^[^@]+@[^@]+\.[a-zA-Z]{2,3}$#", $mail)) {
-								  echo '<p class="alert alert-danger">Mail érroné ! Rappel : abcdef@xyz.com</p>';
-								} 
-								else {
-								  $query = "INSERT INTO Utilisateur(nom,prenom) VALUES ('$nom', '$prenom')";
-								  $result = mysqli_query($co, $query);
-								  $id_utilisateur = mysqli_insert_id($co);
-								                
-								  $mdp = password_hash($mdp, PASSWORD_DEFAULT);
-								  $query = "INSERT INTO UtilisateurActif(id_utilisateur,login,mdp,nom,prenom) VALUES ('$id_utilisateur','$mail','$mdp','$nom','$prenom')";
-								  $result = mysqli_query($co, $query);
-								                
-								  session_start();
-								  $_SESSION['id_utilisateur'] = $id_utilisateur;
-								  header("Location:libs/pagecheck.php");
-								}
-							}
-						}
-					}
+            if ('POST' == $_SERVER['REQUEST_METHOD']) {
+                    $mail    = $_POST['login'];
+                    $mdp     = mysqli_real_escape_string($co, $_POST['mdp']);
+                    $confirm = mysqli_real_escape_string($co, $_POST['mdp_confirm']);
+                    $nom     = $_POST['nom'];
+                    $prenom  = $_POST['prenom'];
+                                        
+                    if ($mdp != $confirm) {
+                            echo '<p class="alert alert-danger">Reconfirmez le mot de passe.</p>';
+                    } 
+                    else {
+                            $checkUsername = "SELECT login FROM UtilisateurActif WHERE login = '$mail'";
+                            $result = mysqli_query($co, $checkUsername);
+                                            
+                            if (mysqli_num_rows($result) >= 1) {
+                                    echo '<p class="alert alert-danger">Ce mail est déjà pris ! Saisissez-en un autre.</p>';
+                            } 
+                            else {
+                                    if (!preg_match("#^[^@]+@[^@]+\.[a-zA-Z]{2,3}$#", $mail)) {
+                                        echo '<p class="alert alert-danger">Mail érroné ! Rappel : abcdef@xyz.com</p>';
+                                    } 
+                                    else {
+                                        $query = "INSERT INTO Utilisateur(nom,prenom) VALUES ('$nom', '$prenom')";
+                                        $result = mysqli_query($co, $query);
+                                        $id_utilisateur = mysqli_insert_id($co);
+                                                    
+                                        $mdp = password_hash($mdp, PASSWORD_DEFAULT);
+                                        $query = "INSERT INTO UtilisateurActif(id_utilisateur,login,mdp,nom,prenom) VALUES ('$id_utilisateur','$mail','$mdp','$nom','$prenom')";
+                                        $result = mysqli_query($co, $query);
+                                                    
+                                        session_start();
+                                        $_SESSION['id_utilisateur'] = $id_utilisateur;
+                                        header("Location:libs/pagecheck.php");
+                                    }
+                            }
+                    }
+            }
 
-				?>
+        ?>
                
         <button class="btn btn-lg btn-danger btn-block" type="submit">Créer mon compte !</button>
         <p><small>Compte existant ? <a class="text-danger" href="login.php">Clique ici !</a></small></p> 
