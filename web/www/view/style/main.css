@@ -1,0 +1,48 @@
+body, html {
+    height: 100%;
+  }
+  
+
+body { 
+    background: url(../img/bg-login.jpg) no-repeat center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin:0;
+    padding:0;
+  
+      
+      
+  }
+
+
+  /* NAVBAR COLOR */
+  .transp {
+      background-color: rgba(189, 195, 199,0.5);
+  }
+
+
+  .fa-bars {
+      color : black;
+      padding-top : 5px;
+  }
+
+  .absolute {
+      margin-top : 30%;
+  }
+
+  @media (max-width: 575.98px) { 
+      .absolute{
+        margin-top: 25%;
+      } 
+   }
+
+
+.red {
+    border-right: 5px solid #dc3545;
+  padding: 15px 40px;
+  color: #1b8547;
+}
+
+
