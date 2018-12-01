@@ -76,7 +76,7 @@
                                                     
                                         session_start();
                                         $_SESSION['id_utilisateur'] = $id_utilisateur;
-                                        header("Location:libs/pagecheck.php");
+                                        header("Location:pagecheck.php");
                                     }
                             }
                     }

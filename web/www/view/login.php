@@ -52,7 +52,7 @@
 		      $id_utilisateur = $result['id_utilisateur'];
 		      session_start();
 		      $_SESSION['id_utilisateur'] = $id_utilisateur;
-		      header("Location:libs/pagecheck.php");
+		      header("Location:pagecheck.php");
 		    } 
 		    else {
 		      echo '<p class="alert alert-danger">Mot de passe incorrect ! Réessayez.</p>';
@@ -72,7 +72,7 @@
 		      $id_utilisateur = $result['id_utilisateur'];
 		      session_start();
 		      $_SESSION['id_utilisateur'] = $id_utilisateur;
-		      header("Location:libs/pagecheck.php");
+		      header("Location:pagecheck.php");
 		    } 
 		    else {
 		      echo '<p class="alert alert-danger">Mot de passe incorrect ! Réessayez.</p>';
