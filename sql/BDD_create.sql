@@ -70,9 +70,7 @@ CREATE TABLE Liste(
 CREATE TABLE UtilisateurActif(
         id_utilisateur Int NOT NULL ,
         login          Varchar (50) NOT NULL ,
-        mdp            Varchar (300) NOT NULL ,
-        nom            Varchar (16) NOT NULL ,
-        prenom         Varchar (16) NOT NULL
+        mdp            Varchar (300) NOT NULL
 	,CONSTRAINT UtilisateurActif_PK PRIMARY KEY (id_utilisateur)
 
 	,CONSTRAINT UtilisateurActif_Utilisateur_FK FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id_utilisateur)
@@ -84,9 +82,7 @@ CREATE TABLE UtilisateurActif(
 #------------------------------------------------------------
 
 CREATE TABLE UtilisateurInactif(
-        id_utilisateur Int NOT NULL ,
-        nom            Varchar (16) NOT NULL ,
-        prenom         Varchar (16) NOT NULL
+        id_utilisateur Int NOT NULL
 	,CONSTRAINT UtilisateurInactif_PK PRIMARY KEY (id_utilisateur)
 
 	,CONSTRAINT UtilisateurInactif_Utilisateur_FK FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id_utilisateur)
