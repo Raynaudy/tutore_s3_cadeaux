@@ -9,9 +9,9 @@
 //Inscription
 INSERT INTO Utilisateur(nom,prenom) VALUES (nom, prenom);
 //Actif
-INSERT INTO UtilisateurActif(id_utilisateur,login,mdp,nom,prenom) VALUES (unIDutilisateur,unMail,unMdp,unNom,unPrenom);
+INSERT INTO UtilisateurActif(id_utilisateur,login,mdp) VALUES (unIDutilisateur,unMail,unMdp);
 //Inactif
-INSERT INTO UtilisateurInactif(id_utilisateur,nom,prenom) VALUES (unIDutilisateur,unNom,unPrenom);
+INSERT INTO UtilisateurInactif(id_utilisateur) VALUES (unIDutilisateur);
 
 //Créer un cadeau (actif ou inactif)
 INSERT INTO Cadeau(nom,id_utilisateur_est_souhaite) VALUES (unNom,unIDutilisateur);
