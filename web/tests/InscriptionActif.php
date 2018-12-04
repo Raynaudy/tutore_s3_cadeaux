@@ -25,7 +25,7 @@
     $result = mysqli_query($co,$query);
     $id_utilisateur = mysqli_insert_id($co);
    
-    $query = "INSERT INTO UtilisateurActif(id_utilisateur,login,mdp,nom,prenom) VALUES ('$id_utilisateur','$mail','$mdp','$nom','$prenom')";
+    $query = "INSERT INTO UtilisateurActif(id_utilisateur,login,mdp) VALUES ('$id_utilisateur','$mail','$mdp')";
     $result=mysqli_query($co,$query);
     
     echo 'Inscription réussie !';
