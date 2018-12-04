@@ -71,7 +71,7 @@ require_once('../controller/connect.php');
             $id_utilisateur = mysqli_insert_id($co);
             
             $mdp = password_hash($mdp, PASSWORD_DEFAULT);
-            $query = "INSERT INTO UtilisateurActif(id_utilisateur,login,mdp,nom,prenom) VALUES ('$id_utilisateur','$mail','$mdp','$nom','$prenom')";
+            $query = "INSERT INTO UtilisateurActif(id_utilisateur,login,mdp) VALUES ('$id_utilisateur','$mail','$mdp')";
             $result = mysqli_query($co, $query);
             
             session_start();
