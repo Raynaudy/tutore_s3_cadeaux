@@ -25,12 +25,40 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   </head>
   <body>
-    <?php
-      include('view/includes/navbar.inc.php');
-    ?>
-    <?php
-      include('view/includes/header.inc.php');
-    ?>
-    
+      <nav class="navbar navbar-expand-lg transp ">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="fas fa-bars fa-lg"></i></span>
+          </button>
+          <a class="navbar-brand " href="index.php"><span class="mb-0 h2 text-danger "><b>Gift</b>list</span></a>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              <li class="form-inline my-2 my-lg-0">
+                <a href="view/signup.php" class="btn btn-outline-danger my-2 my-sm-0 mr-2">S'inscrire</a>
+              </li> 
+            <li class="form-inline my-2 my-lg-0">
+                <a href="view/login.php" class="btn btn-danger  my-2 my-sm-0" >Se connecter</a>
+              </li> 
+            </ul>
+          </div>
+       </nav>
+
+      <header class="masthead ">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="content-box">
+                    </div>
+                </div>
+            <div class="col-sm-8">
+                <div class="content-box absolute">
+                    <div class="text-right red">
+                        <div class="h1">Bienvenue, </div>
+                        <br>
+                        <div class="h2">N'achetez plus jamais de cadeau en double grâce à <b>Gift</b>list</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header> 
   </body>
 </html>
