@@ -31,5 +31,6 @@
     <?php
       include('view/includes/header.inc.php');
     ?>
+    
   </body>
 </html>
