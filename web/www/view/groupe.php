@@ -109,7 +109,7 @@
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">
                 <div class="card-body">
-                  <h1 class="display-4 pb-3 text-center"> <i class="fas fa-plus"></i></h2>
+                  <h1 class="display-4 text-center"> <i class="fas fa-plus"></i></h2>
                 </div>
               </div>
             </div>
