@@ -29,9 +29,9 @@
               </div>
               <div class="col-sm-8 text-center">
                 <nav class="btn-group btn-lg">
-                   <button class="btn btn-lg btn-danger active" >Groupes</button>
-                   <button class="btn btn-lg btn-danger" >Listes</button>
-                   <button class="btn btn-lg btn-danger">Cadeaux</button>
+                  <a class="btn btn-lg btn-danger active" href="groupe.php" >Groupes</a>
+                  <a class="btn btn-lg btn-danger" href="listes.php" >Listes</a>
+                  <a class="btn btn-lg btn-danger" href="groupe.php">Cadeaux</a>
                 </nav>
               </div>
               <div class="col-sm-2">

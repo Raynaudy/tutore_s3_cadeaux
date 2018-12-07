@@ -29,9 +29,10 @@
               </div>
               <div class="col-sm-8 text-center">
                 <nav class="btn-group btn-lg">
-                   <button class="btn btn-lg btn-danger" >Groupes</button>
-                   <button class="btn btn-lg btn-danger active" >Listes</button>
-                   <button class="btn btn-lg btn-danger">Cadeaux</button>
+                   <a class="btn btn-lg btn-danger" href="groupe.php">Groupes</a>
+                   <a class="btn btn-lg btn-danger active" href="groupe.php">Listes</a>
+                   <a class="btn btn-lg btn-danger" href="groupe.php">Cadeaux</a>
+
                 </nav>
               </div>
               <div class="col-sm-2">
@@ -50,6 +51,29 @@
               </div>
           </div>
       </div>
+
+
+      <div class=" mt-5 container h-100">
+          <div class="row h-75 ">
+              <div class="col-md-3">
+                <div class="card h-100" >
+                  <div class="card-header">
+                    Ma liste de cadeau
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-md-9">
+                
+              </div>
+          </div>
+      </div>
+    </div>
 
     
 
