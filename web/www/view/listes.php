@@ -53,17 +53,20 @@
       </div>
 
 
-      <div class=" mt-5 container h-100">
-          <div class="row h-75 ">
+      <div class=" mt-5 container h-75">
+          <div class="row h-100 ">
               <div class="col-md-3">
                 <div class="card h-100" >
                   <div class="card-header">
                     Ma liste de cadeau
                   </div>
                   <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <ul>
+                      <li>iPhône 10</li>
+                      <li>Maquintouch</li>
+                      <li>iPoud</li>
+                      <li>earPouds</li>
+                    </ul>
                   </div>
                 </div>
               </div>

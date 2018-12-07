@@ -19,9 +19,12 @@ body {
     color : grey;
 }
 
+
 .btn-link:hover {
    color: #2b2b2b;
 }
+
+
 
 
 .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
@@ -34,3 +37,4 @@ body {
 .btn-accept:hover {
     background-color: #26ac6d;
 }
+

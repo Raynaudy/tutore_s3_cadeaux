@@ -4,7 +4,7 @@ body, html {
   
 
 body { 
-    background: url(../img/bg-login.jpg) no-repeat center fixed; 
+    background: linear-gradient(rgba(117, 117, 129, 0.20), rgba(117, 117, 129, 0.20)),url(../img/bg-login.jpg) no-repeat center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
