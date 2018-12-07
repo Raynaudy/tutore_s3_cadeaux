@@ -1,7 +1,37 @@
 /* store all rules related to the app itself */
 
+body, html {
+    height: 100%;
+  }
+  
+
+body { 
+    background: linear-gradient(rgba(117,117,129,.5), rgba(117, 117, 129, 0.5)), url(../img/bg-login.jpg) no-repeat center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin:0;
+    padding:0;
+  
+      
+      
+  }
+
+
+
+
 .color-link {
     color : grey;
 }
 
 .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+
+.btn-deny:hover {
+    background-color: #cc3030;
+}
+
+.btn-accept:hover {
+    background-color: #26ac6d;
+}

@@ -24,7 +24,7 @@
   <body>
       <div class="container-fluid pt-1">
           <div class="row">
-              <div class="col-sm-2">
+              <div class="col-sm-2 ">
                   <span class="mb-0 h1 text-danger pl-1 "><b>Gift</b>list</span></a>
               </div>
               <div class="col-sm-8 text-center">
@@ -35,7 +35,7 @@
                 </nav>
               </div>
               <div class="col-sm-2">
-               <div class="dropdown show btn-lg  float-right">
+               <div class="dropdown show btn-lg float-md-right float-lg-right float-xl-right">
                   <a class="btn btn-lg btn-link dropdown-toggle color-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Bonjour Yvain Raynaud
                   </a>
@@ -56,6 +56,8 @@
 
           <div class="row"> <!-- 3 card per row -->
 
+
+            <!-- card - group owner -->
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">
                 <div class="card-body">
@@ -72,7 +74,7 @@
               </div>
             </div>
 
-
+            <!-- card - simple user -->
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">
                 <div class="card-body">
@@ -89,15 +91,15 @@
               </div>
             </div>
 
-
+            <!-- card - not yet accepted -->
             <div class="col-md-4">
               <div class="card mb-4 box-shadow bg-light">
                 <div class="card-body ">
                   <h1 class="display-4 pb-3"> Krusty TV show 2018 </h2>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group ">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Accepter</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Refuser</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary btn-accept">Accepter</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary  btn-deny">Refuser</button>
                     </div>
                     <small class="text-muted invisible">5 membres</small> <!-- if the user is not in the group yet, do not show number of users -->
                   </div>
