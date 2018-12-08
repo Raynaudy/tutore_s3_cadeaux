@@ -28,11 +28,12 @@
                   <span class="mb-0 h1 text-danger pl-1 "><b>Gift</b>list</span></a>
               </div>
               <div class="col-sm-8 text-center">
-                <nav class="btn-group btn-lg">
-                   <a class="btn btn-lg btn-danger" href="groupe.php">Groupes</a>
-                   <a class="btn btn-lg btn-danger active" href="groupe.php">Listes</a>
-                   <a class="btn btn-lg btn-danger" href="groupe.php">Cadeaux</a>
-
+                <nav>
+                  <div class="btn-group btn-lg" >
+                    <a class="btn btn-lg btn-danger" href="groupe.php">Groupes</a>
+                    <a class="btn btn-lg btn-danger active" href="listes.php">Listes</a>
+                   </div>
+                   <a class="btn btn-lg btn-danger" href="cadeaux.php">Cadeaux</a>
                 </nav>
               </div>
               <div class="col-sm-2">
