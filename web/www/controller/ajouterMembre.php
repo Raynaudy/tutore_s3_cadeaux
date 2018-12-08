@@ -21,15 +21,7 @@
     
     }
     
-    
-   
-    
-    
-    echo 'Ajout réussi ! <br/>';
-    echo '<a href = "est_invite.php">Voir est_invite </a>';
-    echo '<br/>';
-    echo '<a href = "est_membre.php">Voir est_membre </a>';
-    
+    header("Location: ../view/groupe.php");
     
     
 ?>
