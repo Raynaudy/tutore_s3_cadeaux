@@ -166,8 +166,14 @@
                             <h1 class="display-4 pb-3">'.mysqli_real_escape_string($co,$row['nom']).'</h2>
                             <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group ">
-                                <button type="button" class="btn btn-sm btn-outline-secondary btn-accept">Accepter</button>
-                                <button type="button" class="btn btn-sm btn-outline-secondary  btn-deny">Refuser</button>
+                                <form method="post" action = "../controller/accepterInvitation.php">
+                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-accept">Accepter</button>
+                                <input type="hidden" name="id_groupe" value = '.$row['id_groupe'].'>
+                                </form>
+                                <form method="post" action = "../controller/refuserInvitation.php">
+                                <button type="submit" class="btn btn-sm btn-outline-secondary  btn-deny">Refuser</button>
+                                <input type="hidden" name="id_groupe" value = '.$row['id_groupe'].'>
+                                </form>
                             </div>
                             <small class="text-muted invisible">'.mysqli_num_rows($membre).' membres</small> <!-- if the user is not in the group yet, do not show number of users -->
                             </div>
