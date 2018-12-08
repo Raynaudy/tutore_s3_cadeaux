@@ -68,7 +68,6 @@ require_once('../controller/connect.php');
           else 
           {
             $utilisateur = new utilisateur($co,$mail,$mdp,$nom,$prenom);
-            $utilisateur->ouvrirSession();
             header("Location:groupe.php");
           }
         }
