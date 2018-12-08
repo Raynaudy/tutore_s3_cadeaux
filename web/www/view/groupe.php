@@ -111,13 +111,18 @@
                     echo '
                     <!-- card - group owner -->
                     <div class="col-md-4">
-                    <a href="listes.php" class="d-block nounderline">
+                    <a class="d-block nounderline">
                         <div class="card mb-4 box-shadow">
                         <div class="card-body">
                             <h1 class="display-4 pb-3">'.mysqli_real_escape_string($co,$row['nom']).'</h2>
                             <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus"></i></button>
+                                <!-- il faut envoyer l id du groupe au modal en meme temps -->
+                                <form method="post" action = "../controller/ajouterMembre.php">
+                                <input type="hidden" name="id" value = '.$row['id_groupe'].'>
+                               <!-- <button type="button" data-toggle="modal" data-target="#modalAjouterMembres" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus"></i></button> -->
+                                <button type="submit" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus"></i></button>
+                                </form>
                                 <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fas fa-minus"></i></button>
                                 <button type="button" class="btn btn-sm btn-outline-secondary">Renommer</button>
                             </div>
@@ -178,7 +183,7 @@
             
             <!-- has to be the last card -->
             <div class="col-md-4">
-              <a data-toggle="modal" data-target="#exampleModal" class="d-block nounderline">
+              <a data-toggle="modal" data-target="#modalCreerGroupe" class="d-block nounderline">
                 <div class="card mb-4 box-shadow">
                   <div class="card-body">
                     <h1 class="display-4 text-center"> <i class="fas fa-plus"></i></h2>
@@ -188,7 +193,7 @@
             </div>
             
             <!--créer un groupe-->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modalCreerGroupe" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
@@ -211,6 +216,69 @@
             </div>
             </div>
             <!---->
+            
+            <!-- ajouter des membres
+            
+            <div class="modal fade" id="modalAjouterMembres" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"> Selectionner des membres à ajouter :</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                
+                    ajouter balises php
+                    
+                    $id_groupe = $_POST['id'];
+                      
+                    echo '<form method = "post" action="../controller/ajouterMembre.php" >';
+                    echo '<input type="hidden" name = "id_groupe" value="'.$id_groupe.'"/>';
+                    echo '<input type="hidden" name = "id_createur" value="'.$_SESSION['id_utilisateur'].'"/>';
+                   
+                    $id = $_SESSION['id_utilisateur'];
+                  
+                    $all = "SELECT id_utilisateur,nom,prenom FROM Utilisateur WHERE id_utilisateur != '$id'";
+                    $result = mysqli_query($co,$all);
+                    
+                   
+                    while ($row = mysqli_fetch_assoc($result))
+                    {
+                        $id = $row['id_utilisateur'];
+                        //si il est ni membre ni invité, alors proposer
+                        $membres = "SELECT * FROM est_membre WHERE id_groupe = '$id_groupe' AND id_utilisateur = '$id'";
+                        $membre = mysqli_query($co,$membres);
+                        
+                        if(mysqli_num_rows($membre) < 1)
+                        {
+                            //déterminer si l'utilisateur est invité ou membre
+                            $invites = "SELECT * FROM est_invite WHERE id_groupe = '$id_groupe' AND id_utilisateur_est_invite = '$id'";
+                            $invite = mysqli_query($co,$invites);
+                            if(mysqli_num_rows($invite) < 1)
+                            {
+                             echo '<input type="checkbox" name = "membre[]" value="'.$id.'"/><label>'.$row['prenom'].' '.$row['nom'].'</label>';echo '<br/>';
+                            }
+                        }
+
+                    }
+                    
+                ajouter balises php
+                   
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Ajouter</button>
+                    </form>
+                </div>
+                </div>
+            </div>
+            </div>
+            
+            
+           -->
+            
             
           </div>
         </div>
