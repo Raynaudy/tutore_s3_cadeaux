@@ -2,6 +2,7 @@
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+include('../model/utilisateur.php');
 require_once('../controller/connect.php');
 
 ?>
@@ -47,14 +48,14 @@ require_once('../controller/connect.php');
 			} 
 			else {
 				$result = mysqli_fetch_assoc($result);
-				if (password_verify($mdp, $result['mdp'])) {
-					$id_utilisateur = $result['id_utilisateur'];
-					session_start();
-					$_SESSION['id_utilisateur'] = $id_utilisateur;
-					header("Location:pagecheck.php");
+				if (password_verify($mdp, $result['mdp'])) 
+				{
+                                    $utilisateur = new utilisateur($co,$result['id_utilisateur'],$login,$mdp);
+                                    header("Location:groupe.php");
 				} 
-				else {
-					echo '<p class="alert alert-danger">Mot de passe incorrect ! Réessayez.</p>';
+				else
+				{
+                                    echo '<p class="alert alert-danger">Mot de passe incorrect ! Réessayez.</p>';
 				}
 			}
 		}

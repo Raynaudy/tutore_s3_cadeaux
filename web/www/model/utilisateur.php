@@ -4,7 +4,8 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require_once('../controller/connect.php');
 
-class Utilisateur {
+class Utilisateur 
+{
   private $connection;
   private $id;
   private $login;
@@ -12,30 +13,51 @@ class Utilisateur {
   private $nom;
   private $prenom;
 
-  function __construct(){
+  function __construct()
+  {
     $nbArgs = func_num_args();
     $args = func_get_args();
-    switch($nbArgs){
+    switch($nbArgs)
+    {
       case 5 : 
         $this->connection = $args[0];
         $this->login = $args[1];
         $this->mdp = $args[2];
         $this->nom = $args[3];
         $this->prenom = $args[4];
+        
+        $query = "INSERT INTO Utilisateur(nom,prenom) VALUES ('$this->nom', '$this->prenom')";
+        $result = mysqli_query($this->connection, $query);
+        $this->id = mysqli_insert_id($this->connection);
+        
+        $this->mdp = password_hash($this->mdp, PASSWORD_DEFAULT);
+        $query = "INSERT INTO UtilisateurActif(id_utilisateur,login,mdp) VALUES ('$this->id','$this->login','$this->mdp')";
+        mysqli_query($this->connection, $query);
+        
 
-      case 3 :
+      case 4 :
         $this->connection = $args[0];
-        $this->login = $args[1];
-        $this->mdp = $args[2];
+        $this->id = $args[1];
+        $this->login = $args[2];
+        $this->mdp = $args[3];
+        
+        $query = "SELECT nom,prenom FROM Utilisateur WHERE id_utilisateur = '$this->id'";
+        $result = mysqli_query($this->connection, $query);
+        $result = mysqli_fetch_assoc($result);
+        $this->nom = $result['nom'];
+        $this->prenom = $result['prenom'];
+        
+        $this->ouvrirSession();
+      }
     }
-  }
 
-  public function checkMdp(){
-    $getMdp = "SELECT mdp FROM UtilisateurActif WHERE login = '$this->login'";
-    $result = mysqli_query($this->connection,$getMdp);
-    $result = mysqli_fetch_assoc($result);
-    return (password_verify($this->mdp, $result['mdp']));
-  }
+    public function ouvrirSession()
+    {
+        session_start();
+        $_SESSION['id_utilisateur'] = $this->id;
+        $_SESSION['nom'] = $this->nom;
+        $_SESSION['prenom'] = $this->prenom;
+    }
+  
 }
-
 ?>

@@ -1,5 +1,5 @@
 <?php
-
+include("../model/utilisateur.php");
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require_once('../controller/connect.php');
@@ -43,9 +43,9 @@ require_once('../controller/connect.php');
     <input type="password" id="inputPasswordConfirmation" name="mdp_confirm" class="form-control bootstrap-overrides mb-3 rounded" placeholder="" required>
     
     <?php
-
+    
     if ('POST' == $_SERVER['REQUEST_METHOD']) {
-      $mail    = $_POST['login'];
+      $mail    = mysqli_real_escape_string($co, $_POST['login']);
       $mdp     = mysqli_real_escape_string($co, $_POST['mdp']);
       $confirm = mysqli_real_escape_string($co, $_POST['mdp_confirm']);
       $nom     = $_POST['nom'];
@@ -65,18 +65,11 @@ require_once('../controller/connect.php');
           if (mysqli_num_rows($result) >= 1) {
             echo '<p class="alert alert-danger">' . "Cette adresse mail est déjà utilisée." . '</p>';
           }
-          else {
-            $query = "INSERT INTO Utilisateur(nom,prenom) VALUES ('$nom', '$prenom')";
-            $result = mysqli_query($co, $query);
-            $id_utilisateur = mysqli_insert_id($co);
-            
-            $mdp = password_hash($mdp, PASSWORD_DEFAULT);
-            $query = "INSERT INTO UtilisateurActif(id_utilisateur,login,mdp) VALUES ('$id_utilisateur','$mail','$mdp')";
-            $result = mysqli_query($co, $query);
-            
-            session_start();
-            $_SESSION['id_utilisateur'] = $id_utilisateur;
-            header("Location:pagecheck.php");
+          else 
+          {
+            $utilisateur = new utilisateur($co,$mail,$mdp,$nom,$prenom);
+            $utilisateur->ouvrirSession();
+            header("Location:groupe.php");
           }
         }
       }
