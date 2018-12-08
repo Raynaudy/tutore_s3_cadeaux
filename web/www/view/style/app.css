@@ -45,6 +45,7 @@ body {
 
 .nounderline:hover {
     text-decoration: none;
+    color : black;
 }
 
 
