@@ -25,7 +25,7 @@ body {
 }
 
 
-
+/* ------------------  GROUPES PAGE  ------------------*/
 
 .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
 
@@ -38,3 +38,55 @@ body {
     background-color: #26ac6d;
 }
 
+
+/* ------------------  LISTES PAGE  ------------------*/
+
+/* stick the button at the bottom of the card */
+.card-body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+a.btn {
+    margin-top: auto;
+}
+
+ul 
+{
+    padding-left: 0.8em;
+}
+
+.container-cards {
+    display : flex;
+    overflow-x: auto;
+     white-space: nowrap;
+}
+
+.mw {
+    min-width: 230px;
+}
+
+
+/* custom scroll bar for chrome */
+
+/* width */
+ ::-webkit-scrollbar {
+    width: 5x;
+}
+
+/* Track */
+ ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+ 
+/* Handle */
+ ::-webkit-scrollbar-thumb {
+    background: #dc3545; 
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+ ::-webkit-scrollbar-thumb:hover {
+    background: #c93443; 
+}

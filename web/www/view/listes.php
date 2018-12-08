@@ -54,29 +54,138 @@
 
 
       <div class=" mt-5 container h-75">
-          <div class="row h-100 ">
-              <div class="col-md-3">
-                <div class="card h-100" >
-                  <div class="card-header">
-                    Ma liste de cadeau
-                  </div>
-                  <div class="card-body">
-                    <ul>
-                      <li>iPhône 10</li>
-                      <li>Maquintouch</li>
-                      <li>iPoud</li>
-                      <li>earPouds</li>
-                    </ul>
-                  </div>
-                </div>
+        <div class="row h-100 ">
+          <div class="col-md-3 border-right">
+            <div class="card h-100" >
+              <div class="card-header">
+                Ma liste de cadeau
               </div>
-              
-              <div class="col-md-9">
-                
+              <div class="card-body">
+                <ul>
+                  <li>iPhône 10 <i class="far fa-trash-alt float-right"></i></li>
+                  <li>Maquintouch <i class="far fa-trash-alt float-right"></i></li>
+                  <li>iPoud <i class="far fa-trash-alt float-right"></i></li>
+                  <li>earPouds <i class="far fa-trash-alt float-right"></i></li>
+                </ul>
+                <span><i class="fas fa-plus"></i><a  href=""> <u>Ajouter un cadeau</u></a></span>
+                <a class="btn btn-primary btn-outline-danger" href="#" role="button">Editer mes cadeaux</a>
               </div>
+            </div>
           </div>
-      </div>
-    </div>
+              
+          <div class="col-md-9  h-75">
+            <h2 class="text-center pb-5 "> Simspons family <b>Gift</b>list</h2>
+            <div class="container-cards h-100">
+                  
+              <div class="card mw ml-3">
+                <div class="card-header">Liste de Marge</div>
+                  <div class="card-body">
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" value="">Echarpe 
+                      </label>
+                      <i class="pt-1 far fa-question-circle float-right"></i>
+                    </div>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" value="">Gants
+                      </label>
+                      <i class="pt-1 far fa-question-circle float-right"></i>
+                    </div>
+                  </div>
+              </div>  
+
+              <div class="card mw ml-3">
+                <div class="card-header">Liste de Marge</div>
+                  <div class="card-body">
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" value="">Echarpe
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" value="">Gants
+                      </label>
+                    </div>
+                  </div>
+              </div>  
+
+
+              <div class="card mw ml-3">
+                <div class="card-header">Liste de Marge</div>
+                  <div class="card-body">
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" value="">Echarpe
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" value="">Gants
+                      </label>
+                    </div>
+                  </div>
+              </div>  
+
+
+              <div class="card mw ml-3">
+                <div class="card-header">Liste de Marge</div>
+                  <div class="card-body">
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" value="">Echarpe
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" value="">Gants
+                      </label>
+                    </div>
+                  </div>
+              </div>  
+
+
+              <div class="card mw ml-3">
+                <div class="card-header">Liste de Marge</div>
+                  <div class="card-body">
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" value="">Echarpe
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" value="">Gants
+                      </label>
+                    </div>
+                  </div>
+              </div>  
+
+
+              <div class="card mw ml-3">
+                <div class="card-header">Liste de Marge</div>
+                  <div class="card-body">
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" value="">Echarpe
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" value="">Gants
+                      </label>
+                    </div>
+                  </div>
+              </div>  
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+     </div>
 
     
 
