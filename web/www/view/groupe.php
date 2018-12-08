@@ -61,61 +61,69 @@
 
             <!-- card - group owner -->
             <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <div class="card-body">
-                  <h1 class="display-4 pb-3"> Simpson's family 2018 </h2>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus"></i></button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fas fa-minus"></i></button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Renommer</button>
+             <a href="listes.php" class="d-block nounderline">
+                <div class="card mb-4 box-shadow">
+                  <div class="card-body">
+                    <h1 class="display-4 pb-3"> Simpson's family 2018 </h2>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus"></i></button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fas fa-minus"></i></button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Renommer</button>
+                      </div>
+                      <small class="text-muted">5 membres</small>
                     </div>
-                    <small class="text-muted">5 membres</small>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
 
             <!-- card - simple user -->
             <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <div class="card-body">
-                  <h1 class="display-4 pb-3"> Bart and friend 2018 </h2>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group invisible "> <!-- put invisible if the user is not the owner -->
-                      <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus"></i></button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fas fa-minus"></i></button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Renommer</button>
+              <a href="#" class="d-block nounderline">
+                <div class="card mb-4 box-shadow">
+                  <div class="card-body">
+                    <h1 class="display-4 pb-3"> Bart and friend 2018 </h2>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group invisible "> <!-- put invisible if the user is not the owner -->
+                        <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus"></i></button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fas fa-minus"></i></button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Renommer</button>
+                      </div>
+                      <small class="text-muted">5 membres</small>
                     </div>
-                    <small class="text-muted">5 membres</small>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
 
             <!-- card - not yet accepted -->
             <div class="col-md-4">
-              <div class="card mb-4 box-shadow bg-light">
-                <div class="card-body ">
-                  <h1 class="display-4 pb-3"> Krusty TV show 2018 </h2>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group ">
-                      <button type="button" class="btn btn-sm btn-outline-secondary btn-accept">Accepter</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary  btn-deny">Refuser</button>
+              <a href="#" class="d-block nounderline">
+                <div class="card mb-4 box-shadow bg-light">
+                  <div class="card-body ">
+                    <h1 class="display-4 pb-3"> Krusty TV show 2018 </h2>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group ">
+                        <button type="button" class="btn btn-sm btn-outline-secondary btn-accept">Accepter</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary  btn-deny">Refuser</button>
+                      </div>
+                      <small class="text-muted invisible">5 membres</small> <!-- if the user is not in the group yet, do not show number of users -->
                     </div>
-                    <small class="text-muted invisible">5 membres</small> <!-- if the user is not in the group yet, do not show number of users -->
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
 
             <!-- has to be the last card -->
             <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <div class="card-body">
-                  <h1 class="display-4 text-center"> <i class="fas fa-plus"></i></h2>
+              <a href="#" class="d-block nounderline">
+                <div class="card mb-4 box-shadow">
+                  <div class="card-body">
+                    <h1 class="display-4 text-center"> <i class="fas fa-plus"></i></h2>
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
 
           </div>

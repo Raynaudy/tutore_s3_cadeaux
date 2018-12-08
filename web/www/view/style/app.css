@@ -39,6 +39,15 @@ body {
 }
 
 
+.nounderline {
+    color : black;
+}
+
+.nounderline:hover {
+    text-decoration: none;
+}
+
+
 /* ------------------  LISTES PAGE  ------------------*/
 
 /* stick the button at the bottom of the card */
