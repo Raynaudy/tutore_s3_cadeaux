@@ -78,7 +78,7 @@
             <h2 class="text-center pb-5 "> Simspons family <b>Gift</b>list</h2>
             <div class="container-cards h-100">
                   
-              <div class="card mw ml-3">
+              <div class="card mw mr-3">
                 <div class="card-header">Liste de Marge</div>
                   <div class="card-body">
                     <div class="form-check">
@@ -96,7 +96,7 @@
                   </div>
               </div>  
 
-              <div class="card mw ml-3">
+              <div class="card mw mr-3">
                 <div class="card-header">Liste de Marge</div>
                   <div class="card-body">
                     <div class="form-check">
@@ -113,7 +113,7 @@
               </div>  
 
 
-              <div class="card mw ml-3">
+              <div class="card mw mr-3">
                 <div class="card-header">Liste de Marge</div>
                   <div class="card-body">
                     <div class="form-check">
@@ -130,7 +130,7 @@
               </div>  
 
 
-              <div class="card mw ml-3">
+              <div class="card mw mr-3">
                 <div class="card-header">Liste de Marge</div>
                   <div class="card-body">
                     <div class="form-check">
@@ -147,7 +147,7 @@
               </div>  
 
 
-              <div class="card mw ml-3">
+              <div class="card mw mr-3">
                 <div class="card-header">Liste de Marge</div>
                   <div class="card-body">
                     <div class="form-check">
@@ -164,7 +164,7 @@
               </div>  
 
 
-              <div class="card mw ml-3">
+              <div class="card mw mr-3">
                 <div class="card-header">Liste de Marge</div>
                   <div class="card-body">
                     <div class="form-check">
