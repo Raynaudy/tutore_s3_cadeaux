@@ -83,7 +83,6 @@
                 if($owner == $id_utilisateur)
                 {
                     $is_owner = true;
-               
                 }
                 else 
                 {
