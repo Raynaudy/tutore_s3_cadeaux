@@ -23,9 +23,9 @@ session_start();
 
 </head>
 <body class="text-center">
-  <form class="form-signin rounded border border-danger" method = "post" action="ajouterMembre.php">
-  <h2 class=" mb-4 mt-1 font-weight-normal">Invitez des amis </h2>
-    <p>Selectionner les membres à ajouter : </p>
+  <form class="form-signin rounded border border-danger" method = "post" action="supprimerMembre.php">
+  <h2 class=" mb-4 mt-1 font-weight-normal">Retirez des membres du groupe</h2>
+    <p>Selectionner les membres à retirer : </p>
     
     <?php
     
@@ -35,33 +35,29 @@ session_start();
     echo '<input type="hidden" name = "id_groupe" value="'.$id_groupe.'"/>';
     echo '<input type="hidden" name = "id_createur" value="'.$id_createur.'"/>';
     
+    $all = mysqli_query($co,"SELECT * FROM utilisateur");
 
-    $all = "SELECT id_utilisateur,nom,prenom FROM Utilisateur";
-    $result = mysqli_query($co,$all);
-    
-    
-    while ($row = mysqli_fetch_assoc($result))
-    {
+    while ($row = mysqli_fetch_assoc($all)) {
+
         $id = $row['id_utilisateur'];
-        //si il est ni membre ni invité, alors proposer
-        $membres = "SELECT * FROM est_membre WHERE id_groupe = '$id_groupe' AND id_utilisateur = '$id'";
-        $membre = mysqli_query($co,$membres);
-        
-        if(mysqli_num_rows($membre) < 1)
-        {
-            //déterminer si l'utilisateur est invité ou membre
-            $invites = "SELECT * FROM est_invite WHERE id_groupe = '$id_groupe' AND id_utilisateur_est_invite = '$id'";
-            $invite = mysqli_query($co,$invites);
-            if(mysqli_num_rows($invite) < 1)
-            {
-                echo '<input type="checkbox" name = "membre[]" value="'.$id.'"/><label>'.$row['prenom'].' '.$row['nom'].'</label>';echo '<br/>';
-            }
-        }
 
+        $membre = mysqli_query($co,"SELECT * FROM est_membre WHERE id_groupe = '$id_groupe' AND id_utilisateur = '$id'");
+        
+        if(mysqli_num_rows($membre) > 0) {
+          if($row['id_utilisateur'] != $id_createur) { //Ne pas supprimer le createur !
+            echo '<input type="checkbox" name = "membre[]" value="'.$id.'"/><label>'.$row['prenom'].' '.$row['nom'].'</label>';echo '<br/>';
+          }
+        }
+        else {
+          $invite = mysqli_query($co,"SELECT * FROM est_invite WHERE id_groupe = '$id_groupe' AND id_utilisateur_est_invite = '$id'");
+          if(mysqli_num_rows($invite) > 0) {
+            echo '<input type="checkbox" name = "membre[]" value="'.$id.'"/><label>'.$row['prenom'].' '.$row['nom'].'</label>';echo '<br/>';
+          }
+        }
     }
     ?>
 
-    <button class="btn btn-lg btn-danger btn-block" type="submit">Ajouter !</button>
+    <button class="btn btn-lg btn-danger btn-block" type="submit">Retirer !</button>
     <p class="mt-3 mb-0 text-muted">&copy; 2018</p>
   </form>
 </body>

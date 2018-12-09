@@ -117,12 +117,15 @@
                             <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
                                 <!-- il faut envoyer l id du groupe au modal en meme temps -->
-                                <form method="post" action = "../controller/selectionnerMembre.php">
-                                <input type="hidden" name="id" value = '.$row['id_groupe'].'>
-                               <!-- <button type="button" data-toggle="modal" data-target="#modalAjouterMembres" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus"></i></button> -->
-                                <button type="submit" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus"></i></button>
+                                <form method="post" action = "../controller/selectionnerMembreAjout.php">
+                                  <input type="hidden" name="id" value = '.$row['id_groupe'].'>
+                                  <!-- <button type="button" data-toggle="modal" data-target="#modalAjouterMembres" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus"></i></button> -->
+                                  <button type="submit" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus"></i></button>
                                 </form>
-                                <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fas fa-minus"></i></button>
+                                <form method="post" action = "../controller/selectionnerMembreSuppression.php">
+                                  <input type="hidden" name="id" value = '.$row['id_groupe'].'>
+                                  <button type="submit" class="btn btn-sm btn-outline-secondary"><i class="fas fa-minus"></i></button>
+                                </form>
                                 <button type="button" class="btn btn-sm btn-outline-secondary">Renommer</button>
                             </div>
                             <small class="text-muted">'.mysqli_num_rows($membre).' membres</small>
@@ -167,12 +170,12 @@
                             <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group ">
                                 <form method="post" action = "../controller/accepterInvitation.php">
-                                <button type="submit" class="btn btn-sm btn-outline-secondary btn-accept">Accepter</button>
-                                <input type="hidden" name="id_groupe" value = '.$row['id_groupe'].'>
+                                  <button type="submit" class="btn btn-sm btn-outline-secondary btn-accept">Accepter</button>
+                                  <input type="hidden" name="id_groupe" value = '.$row['id_groupe'].'>
                                 </form>
-                                <form method="post" action = "../controller/refuserInvitation.php">
-                                <button type="submit" class="btn btn-sm btn-outline-secondary  btn-deny">Refuser</button>
-                                <input type="hidden" name="id_groupe" value = '.$row['id_groupe'].'>
+                                  <form method="post" action = "../controller/refuserInvitation.php">
+                                  <button type="submit" class="btn btn-sm btn-outline-secondary  btn-deny">Refuser</button>
+                                  <input type="hidden" name="id_groupe" value = '.$row['id_groupe'].'>
                                 </form>
                             </div>
                             <small class="text-muted invisible">'.mysqli_num_rows($membre).' membres</small> <!-- if the user is not in the group yet, do not show number of users -->
