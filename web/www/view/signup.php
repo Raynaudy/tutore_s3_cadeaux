@@ -52,11 +52,11 @@ require_once('../controller/connect.php');
       $prenom  = $_POST['prenom'];
       
       if ($mdp != $confirm) {
-        echo '<p class="alert alert-danger">Reconfirmez le mot de passe.</p>';
+        echo '<p class="alert alert-danger">Confirmation du mot de passe erronée</p>';
       } 
       else {
         if (!preg_match("#^[^@]+@[^@]+\.[a-zA-Z]{2,3}$#", $mail)) {
-          echo '<p class="alert alert-danger">Mail érroné ! Rappel : abcdef@xyz.com</p>';
+          echo '<p class="alert alert-danger">Adresse mail erronée ! Rappel : abcdef@xyz.com</p>';
         }
         else {
           $checkUsername = "SELECT login FROM UtilisateurActif WHERE login = '$mail'";
