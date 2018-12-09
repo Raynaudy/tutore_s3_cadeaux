@@ -35,7 +35,7 @@ session_start();
     echo '<input type="hidden" name = "id_groupe" value="'.$id_groupe.'"/>';
     echo '<input type="hidden" name = "id_createur" value="'.$id_createur.'"/>';
     
-    $all = mysqli_query($co,"SELECT * FROM utilisateur");
+    $all = mysqli_query($co,"SELECT * FROM Utilisateur");
 
     while ($row = mysqli_fetch_assoc($all)) {
 

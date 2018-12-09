@@ -38,13 +38,19 @@
               <div class="col-sm-2">
                <div class="dropdown show btn-lg float-md-right float-lg-right float-xl-right">
                   <a class="btn btn-lg btn-link dropdown-toggle color-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <?php session_start(); echo $_SESSION['prenom']." ".$_SESSION['nom'];?>
+                    <?php 
+                    session_start(); 
+                    if(!isset($_SESSION['id_utilisateur_inactif']))
+                        echo $_SESSION['prenom']." ".$_SESSION['nom'];
+                    else echo $_SESSION['prenom_inactif']. " ".$_SESSION['nom_inactif'].'<br/> actif : '.$_SESSION['prenom']." ".$_SESSION['nom'];
+                        
+                    ?>
                   </a>
 
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <a class="dropdown-item" href="#">Voir mon profil</a>
                     <a class="dropdown-item" href="#">Créer un compte invité</a>
-                    <a class="dropdown-item" href="#">Se loguer en tant que xxx </a>
+                    <a class="dropdown-item" href="loginInactif.php">Se loguer en tant que xxx </a>
                     <a class="dropdown-item" href="login.php">Se déconnecter</a>
                   </div>
                 </div>

@@ -54,9 +54,17 @@ class Utilisateur
     public function ouvrirSession()
     {
         session_start();
+        $_SESSION['utilisateur'] = $this;
         $_SESSION['id_utilisateur'] = $this->id;
         $_SESSION['nom'] = $this->nom;
         $_SESSION['prenom'] = $this->prenom;
+    }
+    
+    public function ajouterInactif($id,$nom,$prenom)
+    {
+        $_SESSION['id_utilisateur_inactif'] = $id;
+        $_SESSION['nom_inactif'] = $nom;
+        $_SESSION['prenom_inactif'] = $prenom;
     }
   
 }
