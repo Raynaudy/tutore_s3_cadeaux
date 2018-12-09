@@ -19,7 +19,7 @@ class Utilisateur
     $args = func_get_args();
     switch($nbArgs)
     {
-      case 5 : 
+      case 5 : //création d'un utilisateur
         $this->connection = $args[0];
         $this->login = $args[1];
         $this->mdp = $args[2];
@@ -35,7 +35,7 @@ class Utilisateur
         mysqli_query($this->connection, $query);
         
 
-      case 4 :
+      case 4 : //utilisateur existant
         $this->connection = $args[0];
         $this->id = $args[1];
         $this->login = $args[2];
