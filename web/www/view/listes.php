@@ -59,14 +59,47 @@
           <div class="col-md-3 border-right">
             <div class="card h-100" >
               <div class="card-header">
-                Ma liste de cadeau
+            
+                <?php
+                    require_once('../controller/connect.php');
+
+                    error_reporting(E_ALL);
+                    ini_set('display_errors', 1);
+                    
+                    $id_groupe = $_POST['id_groupe'];
+                    $id_utilisateur = $_SESSION['id_utilisateur'];
+                    
+                     $liste = mysqli_query($co,"SELECT libelle,Liste.id_liste,Groupe.nom FROM Groupe, Liste, est_partagee WHERE Groupe.id_groupe = '$id_groupe' AND est_partagee.id_groupe = Groupe.id_groupe AND Liste.id_liste = est_partagee.id_liste AND Liste.id_utilisateur = '$id_utilisateur'");
+                    
+                    $liste = mysqli_fetch_assoc($liste);
+                    //pour la suite...
+                    $id_liste  = $liste['id_liste'];
+                    $nom_groupe  = $liste['nom'];
+                    
+                    $_SESSION['id_liste'] = $liste['id_liste'];
+                    echo mysqli_real_escape_string($co,$liste['libelle']);
+                ?>
               </div>
               <div class="card-body">
                 <ul>
+                
+                    <?php
+                    
+                        $cadeaux = "SELECT Cadeau.nom FROM fait_partie, Cadeau WHERE fait_partie.id_liste  = '$id_liste' AND fait_partie.id_cadeau = Cadeau.id_cadeau";
+                        $cadeaux = mysqli_query($co,$cadeaux);
+                        
+                        
+                        while($row = mysqli_fetch_assoc($cadeaux))
+                        {
+                                 echo '<li>'.$row['nom'].'<i class="far fa-trash-alt float-right"></i></li>';
+                        }
+                    ?>
+                
+                    <!--
                   <li>iPhône 10 <i class="far fa-trash-alt float-right"></i></li>
                   <li>Maquintouch <i class="far fa-trash-alt float-right"></i></li>
                   <li>iPoud <i class="far fa-trash-alt float-right"></i></li>
-                  <li>earPouds <i class="far fa-trash-alt float-right"></i></li>
+                  <li>earPouds <i class="far fa-trash-alt float-right"></i></li>-->
                 </ul>
                 <span class="text-danger"><i class="fas fa-plus"></i><a class="text-danger" href=""> <u>Ajouter un cadeau</u></a></span>
                 <a class="btn btn-primary btn-outline-danger" href="#" role="button">Editer mes cadeaux</a>
@@ -75,9 +108,43 @@
           </div>
               
           <div class="col-md-9  h-75">
-            <h2 class="text-center pb-5 "> Simspons family <b>Gift</b>list</h2>
+            <h2 class="text-center pb-5 "> <?php echo $nom_groupe; ?></h2>
             <div class="container-cards h-100">
-                  
+            
+            <?php
+            
+                $membres = mysqli_query($co,"SELECT Liste.id_utilisateur, Utilisateur.nom, prenom FROM Liste, est_partagee, Utilisateur WHERE Liste.id_liste = est_partagee.id_liste AND Liste.id_utilisateur = Utilisateur.id_utilisateur AND est_partagee.id_groupe = '$id_groupe'");
+                
+                while($row =  mysqli_fetch_assoc($membres))
+                {
+                    
+                    echo ' <div class="card mw mr-3 mb-2  mb-2">
+                                <div class="card-header">'.mysqli_real_escape_string($co,$row['prenom']).' '.mysqli_real_escape_string($co,$row['nom']).'</div>
+                                <div class="card-body">
+                                ';
+                    
+                    $id_util = $row['id_utilisateur'];
+                    $cadeaux = "SELECT Cadeau.nom, Cadeau.id_cadeau FROM est_partagee,fait_partie,Cadeau,Liste WHERE est_partagee.id_groupe = '$id_groupe' AND est_partagee.id_liste = Liste.id_liste AND fait_partie.id_cadeau = Cadeau.id_cadeau AND Liste.id_utilisateur = '$id_util' AND Liste.id_liste = fait_partie.id_liste";
+                    $cadeaux = mysqli_query($co,$cadeaux);
+                    
+                    while($rowInt = mysqli_fetch_assoc($cadeaux))
+                    {
+                               echo ' <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" value="'.$rowInt['id_cadeau'].'">'.$rowInt['nom'].'
+                                    </label>
+                                    </div>
+                                    ';
+                    }
+                    echo '
+                       
+                        </div>
+                        </div>
+                      ';
+                }
+ 
+            ?>
+            <!--
               <div class="card mw mr-3 mb-2  mb-2">
                 <div class="card-header">Liste de Marge</div>
                   <div class="card-body">
@@ -179,7 +246,7 @@
                     </div>
                   </div>
               </div>  
-
+-->
 
 
               </div>

@@ -138,6 +138,10 @@
                             </div>
                         </div>
                         </div>
+                        <form method = "post" action = "listes.php">
+                        <input type="hidden" name = "id_groupe" value = '.$row['id_groupe'].'>
+                        <button type="submit"  class="btn btn-danger  my-2 my-sm-0">Consulter les listes</button>
+                        </form>
                     </a>
                     </div>';
                 }
@@ -161,6 +165,10 @@
                             </div>
                         </div>
                         </div>
+                        <form method = "post" action = "listes.php">
+                        <input type="hidden" name = "id_groupe" value = '.$row['id_groupe'].'>
+                        <button type="submit"  class="btn btn-danger  my-2 my-sm-0">Consulter les listes</button>
+                        </form>
                     </a>
                     </div>';
                 }
@@ -188,6 +196,10 @@
                             </div>
                         </div>
                         </div>
+                        <form method = "post" action = "listes.php">
+                        <input type="hidden" name = "id_groupe" value = '.$row['id_groupe'].'>
+                        <button type="submit"  class="btn btn-danger  my-2 my-sm-0">Consulter les listes</button>
+                        </form>
                     </a>
                     </div>';
                 }
