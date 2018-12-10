@@ -123,12 +123,12 @@
                             <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
                                 <!-- il faut envoyer l id du groupe au modal en meme temps -->
-                                <form method="post" action = "../controller/selectionnerMembreAjout.php">
+                                <form method="post" action = "../view/selectionnerMembreAjout.php">
                                   <input type="hidden" name="id" value = '.$row['id_groupe'].'>
                                   <!-- <button type="button" data-toggle="modal" data-target="#modalAjouterMembres" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus"></i></button> -->
                                   <button type="submit" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus"></i></button>
                                 </form>
-                                <form method="post" action = "../controller/selectionnerMembreSuppression.php">
+                                <form method="post" action = "../view/selectionnerMembreSuppression.php">
                                   <input type="hidden" name="id" value = '.$row['id_groupe'].'>
                                   <button type="submit" class="btn btn-sm btn-outline-secondary"><i class="fas fa-minus"></i></button>
                                 </form>

@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-require_once('connect.php');
+require_once('../controller/connect.php');
 session_start();
 
 ?>
@@ -23,7 +23,7 @@ session_start();
 
 </head>
 <body class="text-center">
-  <form class="form-signin rounded border border-danger" method = "post" action="supprimerMembre.php">
+  <form class="form-signin rounded border border-danger" method = "post" action="../controller/supprimerMembre.php">
   <h2 class=" mb-4 mt-1 font-weight-normal">Retirez des membres du groupe</h2>
     <p>Selectionner les membres à retirer : </p>
     
