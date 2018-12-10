@@ -113,7 +113,7 @@
             
             <?php
             
-                $membres = mysqli_query($co,"SELECT Liste.id_utilisateur, Utilisateur.nom, prenom FROM Liste, est_partagee, Utilisateur WHERE Liste.id_liste = est_partagee.id_liste AND Liste.id_utilisateur = Utilisateur.id_utilisateur AND est_partagee.id_groupe = '$id_groupe'");
+                $membres = mysqli_query($co,"SELECT Liste.id_utilisateur, Utilisateur.nom, prenom FROM Liste, est_partagee, Utilisateur WHERE Liste.id_liste = est_partagee.id_liste AND Liste.id_utilisateur = Utilisateur.id_utilisateur AND est_partagee.id_groupe = '$id_groupe' AND Utilisateur.id_utilisateur != '$id_utilisateur'");
                 
                 while($row =  mysqli_fetch_assoc($membres))
                 {
