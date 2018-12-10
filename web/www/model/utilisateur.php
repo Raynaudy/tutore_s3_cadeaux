@@ -48,24 +48,34 @@ class Utilisateur
         $this->prenom = $result['prenom'];
         
         $this->ouvrirSession();
-      }
-    }
 
-    public function ouvrirSession()
-    {
-        session_start();
-        $_SESSION['utilisateur'] = $this;
-        $_SESSION['id_utilisateur'] = $this->id;
-        $_SESSION['nom'] = $this->nom;
-        $_SESSION['prenom'] = $this->prenom;
+      case 3 : //Creation inactif
+        $this->connection = $args[0];
+        $this->nom = $args[1];
+        $this->prenom = $args[2];
+        $insertion = mysqli_query($this->connection,"INSERT INTO Utilisateur(nom,prenom) VALUES ('$this->nom','$this->prenom')");
+        $this->id = mysqli_insert_id($this->connection);
+        $insertion = mysqli_query($this->connection,"INSERT INTO UtilisateurInactif(id_utilisateur) VALUES ('$this->id')");
+
+        $this->ajouterInactif();
     }
+  }
+
+  public function ouvrirSession()
+  {
+    session_start();
+    $_SESSION['utilisateur'] = $this;
+    $_SESSION['id_utilisateur'] = $this->id;
+    $_SESSION['nom'] = $this->nom;
+    $_SESSION['prenom'] = $this->prenom;
+  }
     
-    public function ajouterInactif($id,$nom,$prenom)
-    {
-        $_SESSION['id_utilisateur_inactif'] = $id;
-        $_SESSION['nom_inactif'] = $nom;
-        $_SESSION['prenom_inactif'] = $prenom;
-    }
+  public function ajouterInactif()
+  {
+    $_SESSION['id_utilisateur_inactif'] = $this->id;
+    $_SESSION['nom_inactif'] = $this->nom;
+    $_SESSION['prenom_inactif'] = $this->prenom;
+  }
   
 }
 ?>
