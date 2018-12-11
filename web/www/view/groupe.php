@@ -116,33 +116,33 @@
                     echo '
                     <!-- card - group owner -->
                     <div class="col-md-4">
-                    <a class="d-block nounderline">
                         <div class="card mb-4 box-shadow">
-                        <div class="card-body">
-                            <h1 class="display-4 pb-3">'.mysqli_real_escape_string($co,$row['nom']).'</h2>
-                            <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <!-- il faut envoyer l id du groupe au modal en meme temps -->
-                                <form method="post" action = "../view/selectionnerMembreAjout.php">
-                                  <input type="hidden" name="id" value = '.$row['id_groupe'].'>
-                                  <!-- <button type="button" data-toggle="modal" data-target="#modalAjouterMembres" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus"></i></button> -->
-                                  <button type="submit" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus"></i></button>
+                            <div class="card-body">
+                                <h1 class="display-4 pb-3">'.mysqli_real_escape_string($co,$row['nom']).'</h2>
+                                <form class="mt-1 mb-3 text-center" method = "post" action = "listes.php">
+                                    <input type="hidden" name = "id_groupe" value = '.$row['id_groupe'].'>
+                                    <button type="submit"  class="btn btn-outline-danger  my-2 my-sm-0">Consulter les listes</button>
                                 </form>
-                                <form method="post" action = "../view/selectionnerMembreSuppression.php">
-                                  <input type="hidden" name="id" value = '.$row['id_groupe'].'>
-                                  <button type="submit" class="btn btn-sm btn-outline-secondary"><i class="fas fa-minus"></i></button>
-                                </form>
-                                <button type="button" class="btn btn-sm btn-outline-secondary">Renommer</button>
-                            </div>
-                            <small class="text-muted">'.mysqli_num_rows($membre).' membres</small>
+                                <div class="d-flex justify-content-between align-items-center">
+                                
+                                    <div class="btn-group">
+                                        <!-- il faut envoyer l id du groupe au modal en meme temps -->
+                                        <form method="post" action = "../view/selectionnerMembreAjout.php">
+                                          <input type="hidden" name="id" value = '.$row['id_groupe'].'>
+                                          <!-- <button type="button" data-toggle="modal" data-target="#modalAjouterMembres" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus"></i></button> -->
+                                          <button type="submit" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus"></i></button>
+                                        </form>
+                                        <form method="post" action = "../view/selectionnerMembreSuppression.php">
+                                          <input type="hidden" name="id" value = '.$row['id_groupe'].'>
+                                          <button type="submit" class="btn btn-sm btn-outline-secondary"><i class="fas fa-minus"></i></button>
+                                        </form>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Renommer</button>
+                                    </div>
+                                    <small class="text-muted">'.mysqli_num_rows($membre).' membres</small>
+                                </div>
+                                
                             </div>
                         </div>
-                        </div>
-                        <form method = "post" action = "listes.php">
-                        <input type="hidden" name = "id_groupe" value = '.$row['id_groupe'].'>
-                        <button type="submit"  class="btn btn-danger  my-2 my-sm-0">Consulter les listes</button>
-                        </form>
-                    </a>
                     </div>';
                 }
                 elseif($est_membre === true)
@@ -151,25 +151,25 @@
                     echo '
                     <!-- card - simple user -->
                     <div class="col-md-4">
-                    <a href="#" class="d-block nounderline">
                         <div class="card mb-4 box-shadow">
-                        <div class="card-body">
-                            <h1 class="display-4 pb-3">'.mysqli_real_escape_string($co,$row['nom']).'</h2>
-                            <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group invisible "> <!-- put invisible if the user is not the owner -->
-                                <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus"></i></button>
-                                <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fas fa-minus"></i></button>
-                                <button type="button" class="btn btn-sm btn-outline-secondary">Renommer</button>
+                            <div class="card-body">
+                                <h1 class="display-4 pb-3">'.mysqli_real_escape_string($co,$row['nom']).'</h2>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group invisible "> <!-- put invisible if the user is not the owner -->
+                                        <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus"></i></button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fas fa-minus"></i></button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Renommer</button>
+                                    </div>
+                                    <small class="text-muted">'.mysqli_num_rows($membre).' membres</small>
+                                </div>
+                                <form method = "post" action = "listes.php">
+                                    <input type="hidden" name = "id_groupe" value = '.$row['id_groupe'].'>
+                                    <button type="submit"  class="btn btn-danger  my-2 my-sm-0">Consulter les listes</button>
+                                </form>
                             </div>
-                            <small class="text-muted">'.mysqli_num_rows($membre).' membres</small>
-                            </div>
+                            
                         </div>
-                        </div>
-                        <form method = "post" action = "listes.php">
-                        <input type="hidden" name = "id_groupe" value = '.$row['id_groupe'].'>
-                        <button type="submit"  class="btn btn-danger  my-2 my-sm-0">Consulter les listes</button>
-                        </form>
-                    </a>
+                        
                     </div>';
                 }
                 elseif($est_invite === true)
@@ -177,7 +177,6 @@
                     echo '
                     <!-- card - not yet accepted -->
                     <div class="col-md-4">
-                    <a href="#" class="d-block nounderline">
                         <div class="card mb-4 box-shadow bg-light">
                         <div class="card-body ">
                             <h1 class="display-4 pb-3">'.mysqli_real_escape_string($co,$row['nom']).'</h2>
@@ -196,11 +195,11 @@
                             </div>
                         </div>
                         </div>
+                        <!-- we can t see list if it is not accepted
                         <form method = "post" action = "listes.php">
                         <input type="hidden" name = "id_groupe" value = '.$row['id_groupe'].'>
                         <button type="submit"  class="btn btn-danger  my-2 my-sm-0">Consulter les listes</button>
-                        </form>
-                    </a>
+                        </form> -->
                     </div>';
                 }
             }
