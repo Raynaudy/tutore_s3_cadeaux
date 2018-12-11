@@ -130,11 +130,11 @@
                                         <form method="post" action = "../view/selectionnerMembreAjout.php">
                                           <input type="hidden" name="id" value = '.$row['id_groupe'].'>
                                           <!-- <button type="button" data-toggle="modal" data-target="#modalAjouterMembres" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus"></i></button> -->
-                                          <button type="submit" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus"></i></button>
+                                          <button type="submit" class="btn btn-sm btn-outline-secondary "><i class="fas fa-plus"></i></button>
                                         </form>
                                         <form method="post" action = "../view/selectionnerMembreSuppression.php">
                                           <input type="hidden" name="id" value = '.$row['id_groupe'].'>
-                                          <button type="submit" class="btn btn-sm btn-outline-secondary"><i class="fas fa-minus"></i></button>
+                                          <button type="submit" class="btn btn-sm btn-outline-secondary "><i class="fas fa-minus"></i></button>
                                         </form>
                                         <button type="button" class="btn btn-sm btn-outline-secondary">Renommer</button>
                                     </div>
@@ -234,7 +234,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Créer</button>
+                    <button type="submit" class="btn btn-danger">Créer</button>
                     </form>
                 </div>
                 </div>

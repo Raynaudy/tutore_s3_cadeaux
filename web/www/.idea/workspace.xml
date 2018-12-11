@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc6943da-d28d-48e9-9e77-1461478af29b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Rendus/~$arte_graphique.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Rendus/~WRL2374.tmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/groupe.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/groupe.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -95,8 +94,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/view/groupe.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="122" column="56" lean-forward="true" selection-start-line="122" selection-start-column="56" selection-end-line="122" selection-end-column="56" />
+            <state relative-caret-position="538">
+              <caret line="236" column="63" selection-start-line="236" selection-start-column="63" selection-end-line="236" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -188,12 +187,12 @@
       <option name="presentableId" value="Default" />
       <updated>1544478408622</updated>
       <workItem from="1544478411266" duration="629000" />
-      <workItem from="1544555127101" duration="1005000" />
+      <workItem from="1544555127101" duration="1272000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1634000" />
+    <option name="totallyTimeSpent" value="1901000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -306,8 +305,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/view/groupe.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="122" column="56" lean-forward="true" selection-start-line="122" selection-start-column="56" selection-end-line="122" selection-end-column="56" />
+        <state relative-caret-position="538">
+          <caret line="236" column="63" selection-start-line="236" selection-start-column="63" selection-end-line="236" selection-end-column="63" />
         </state>
       </provider>
     </entry>
