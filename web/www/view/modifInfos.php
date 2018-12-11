@@ -52,6 +52,99 @@
           </div>
       </div>
 
+      <div class="container col-md-7 mt-3">
+        <div class="card">
+            <div class="card-body">
+                <h1>Mon profil : </h1>
+                <span class="pt-1"><strong>Mon prénom :</strong> <?php echo $_SESSION['prenom']; ?> <a data-toggle="modal" data-target="#modalModifierPrenom" class=" btn btn-outline-danger btn-sm float-right ">Modifier prénom</a></span>
+                <span class="pt-1"><strong>Mon nom :</strong> <?php echo $_SESSION['nom']; ?> <a data-toggle="modal" data-target="#modalModifierNom" class=" btn btn-outline-danger btn-sm float-right ">Modifier nom</a></span>
+                <span class="pt-1"><strong>Mon mot de passe :</strong> ••••••••••••  <a data-toggle="modal" data-target="#modalModifierMotDePasse" class=" btn btn-outline-danger btn-sm float-right ">Modifier mot de passe</a></span>
+            </div>
+        </div>
+      </div>
+
+
+        <!--Modifier prenom-->
+        <div class="modal fade" id="modalModifierPrenom" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modifier mon prénom</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method = "post" action="../controller/modifierPrenom.php">
+                        <label for="inputPrenom" class="float-left mb-1">Mon nouveau prénom : </label>
+                        <input type="text" id="inputPrenom" name="prenom" class="form-control input-text mb-1" placeholder="" required autofocus>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                        <button type="submit" class="btn btn-danger">Modifier</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!--Modifier nom-->
+        <div class="modal fade" id="modalModifierNom" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modifier mon nom</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method = "post" action="../controller/modifierNom.php">
+                        <label for="inputNom" class="float-left mb-1">Mon nouveau nom : </label>
+                        <input type="text" id="inputNom" name="nom" class="form-control input-text mb-1" placeholder="" required autofocus>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                        <button type="submit" class="btn btn-danger">Modifier</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+          <!--Modifier mot de passe-->
+          <div class="modal fade" id="modalModifierMotDePasse" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modifier mon mot de passe</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method = "post" action="../controller/modifierMotDePasse.php">
+                        <label for="inputAncienMotDePasse" class="float-left mb-1">Mon ancien mot de passe : </label>
+                        <input type="text" id="inputAncienMotDePasse" name="ancienMotDePasse" class="form-control input-text mb-1" placeholder="" required autofocus>
+
+                        <label for="inputNouveauMotDePasse" class="float-left mb-1">Mon nouveau mot de passe : </label>
+                        <input type="text" id="inputNouveauMotDePasse" name="nouveauMotDePasse" class="form-control input-text mb-1" placeholder="" required>
+
+                        <label for="inputConfirmation" class="float-left mb-1">Confirmation : </label>
+                        <input type="text" id="inputConfirmation" name="xonfirmation" class="form-control input-text mb-1" placeholder="" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                        <button type="submit" class="btn btn-danger">Modifier</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
      
 
   </body>
