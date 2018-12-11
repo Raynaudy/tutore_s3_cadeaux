@@ -42,7 +42,7 @@
                   </a>
 
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">Voir mon profil</a>
+                    <a class="dropdown-item" href="modifInfos.php">Voir mon profil</a>
                     <a class="dropdown-item" href="#">Créer un compte invité</a>
                     <a class="dropdown-item" href="#">Se loguer en tant que xxx </a>
                     <a class="dropdown-item" href="#">Se déconnecter</a>
