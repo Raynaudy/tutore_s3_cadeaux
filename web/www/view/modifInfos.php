@@ -52,10 +52,10 @@
           </div>
       </div>
 
-      <div class="container col-md-7 mt-3">
+      <div class="container col-md-7 mt-5">
         <div class="card">
             <div class="card-body">
-                <h1>Mon profil : </h1>
+                <h1 class="mb-4 mt-2">Mon profil : </h1>
                 <span class="pt-1"><strong>Mon prénom :</strong> <?php echo $_SESSION['prenom']; ?> <a data-toggle="modal" data-target="#modalModifierPrenom" class=" btn btn-outline-danger btn-sm float-right ">Modifier prénom</a></span>
                 <span class="pt-1"><strong>Mon nom :</strong> <?php echo $_SESSION['nom']; ?> <a data-toggle="modal" data-target="#modalModifierNom" class=" btn btn-outline-danger btn-sm float-right ">Modifier nom</a></span>
                 <span class="pt-1"><strong>Mon mot de passe :</strong> ••••••••••••  <a data-toggle="modal" data-target="#modalModifierMotDePasse" class=" btn btn-outline-danger btn-sm float-right ">Modifier mot de passe</a></span>
