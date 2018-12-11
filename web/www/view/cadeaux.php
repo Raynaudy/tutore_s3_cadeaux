@@ -40,9 +40,7 @@
                 <a class="btn btn-lg btn-link dropdown-toggle color-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <?php
                     session_start();
-                    if(!isset($_SESSION['id_utilisateur_inactif']))
-                        echo $_SESSION['prenom']." ".$_SESSION['nom'];
-                    else echo $_SESSION['prenom_inactif']. " ".$_SESSION['nom_inactif'].'<br/> actif : '.$_SESSION['prenom']." ".$_SESSION['nom'];
+                    echo $_SESSION['prenom']." ".$_SESSION['nom'];
 
                     ?>
                 </a>
