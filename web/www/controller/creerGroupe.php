@@ -7,7 +7,6 @@ session_start();
 
 $nom = $_POST['nom'];
 
-
 $cadeau = new groupe($co,$nom,$_SESSION['id_utilisateur']);
 header("Location:../view/groupe.php");
 ?>

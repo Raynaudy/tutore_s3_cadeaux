@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   </head>
   <body>
-      <div class="container-fluid pt-1">
+  <div class="container-fluid pt-1">
           <div class="row">
               <div class="col-sm-2 ">
                   <span class="mb-0 h1 text-danger pl-1 "><b>Gift</b>list</span></a>
@@ -38,18 +38,14 @@
               <div class="col-sm-2">
                <div class="dropdown show btn-lg float-md-right float-lg-right float-xl-right">
                   <a class="btn btn-lg btn-link dropdown-toggle color-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <?php 
-                    session_start(); 
-                    echo $_SESSION['prenom']." ".$_SESSION['nom'];
-                        
-                    ?>
+                    <?php session_start(); echo $_SESSION['prenom']." ".$_SESSION['nom'];?>
                   </a>
 
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <a class="dropdown-item" href="#">Voir mon profil</a>
                     <a class="dropdown-item" href="#">Créer un compte invité</a>
-                    <a class="dropdown-item" href="loginInactif.php">Se loguer en tant que xxx </a>
-                    <a class="dropdown-item" href="login.php">Se déconnecter</a>
+                    <a class="dropdown-item" href="#">Se loguer en tant que xxx </a>
+                    <a class="dropdown-item" href="#">Se déconnecter</a>
                   </div>
                 </div>
               </div>
