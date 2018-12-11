@@ -28,11 +28,8 @@
               </div>
               <div class="col-sm-8 text-center">
                 <nav>
-                  <div class="btn-group btn-lg" >
-                    <a class="btn btn-lg btn-danger active" href="groupe.php">Groupes</a>
-                    <a class="btn btn-lg btn-danger " href="listes.php">Listes</a>
-                   </div>
-                   <a class="btn btn-lg btn-danger" href="cadeaux.php">Cadeaux</a>
+                 
+                    <a class="btn btn-lg btn-danger mt-2" href="groupe.php">Retourner à mes groupes</a>
                 </nav>
               </div>
               <div class="col-sm-2">
