@@ -211,7 +211,7 @@
               <a data-toggle="modal" data-target="#modalCreerGroupe" class="d-block nounderline">
                 <div class="card mb-4 box-shadow">
                   <div class="card-body">
-                    <h1 class="display-4 text-center"> <i class="fas fa-plus"></i></h2>
+                    <h1 class="display-4 text-center"> <i class="fas fa-plus"></i></h1>
                   </div>
                 </div>
               </a>
