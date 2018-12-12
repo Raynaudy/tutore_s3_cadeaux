@@ -1,3 +1,12 @@
+<?php
+        //si l'utilisateur n'est pas encore connecté
+        if(session_status() == PHP_SESSION_NONE) {
+            header("Location:error503.php");
+        }
+?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="fr">
