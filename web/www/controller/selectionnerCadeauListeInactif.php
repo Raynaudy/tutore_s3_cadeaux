@@ -36,7 +36,7 @@
     <?php
     
     $id_liste = $_POST['id_liste'];
-    $id_createur = $_SESSION['id_utilisateur'];
+    $id_inactif = $_POST['id_inactif'];
     echo '<input type="hidden" name = "id_liste" value="'.$id_liste.'"/>';
     
     $all = "SELECT id_cadeau,nom FROM Cadeau WHERE id_utilisateur_est_souhaite = '$id_createur'";

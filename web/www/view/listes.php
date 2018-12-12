@@ -82,7 +82,7 @@
                     
                     $id_utilisateur = $_SESSION['id_utilisateur'];
                     
-                     $liste = mysqli_query($co,"SELECT libelle,Liste.id_liste,Groupe.nom FROM Groupe, Liste, est_partagee WHERE Groupe.id_groupe = '$id_groupe' AND est_partagee.id_groupe = Groupe.id_groupe AND Liste.id_liste = est_partagee.id_liste AND Liste.id_utilisateur = '$id_utilisateur'");
+                    $liste = mysqli_query($co,"SELECT libelle,Liste.id_liste,Groupe.nom FROM Groupe, Liste, est_partagee WHERE Groupe.id_groupe = '$id_groupe' AND est_partagee.id_groupe = Groupe.id_groupe AND Liste.id_liste = est_partagee.id_liste AND Liste.id_utilisateur = '$id_utilisateur'");
                     
                     $liste = mysqli_fetch_assoc($liste);
                     //pour la suite...
@@ -135,13 +135,16 @@
                 
                 while($row =  mysqli_fetch_assoc($membres))
                 {
+                   
+                    $id_util = $row['id_utilisateur'];
+                        
                     
                     echo ' <div class="card mw mr-3 mb-2  mb-2">
                                 <div class="card-header">'.mysqli_real_escape_string($co,$row['prenom']).' '.mysqli_real_escape_string($co,$row['nom']).'</div>
                                 <div class="card-body">
                                 ';
                     
-                    $id_util = $row['id_utilisateur'];
+                   
                     $cadeaux = "SELECT Cadeau.nom, Cadeau.id_cadeau, Cadeau.id_utilisateur_est_offert FROM est_partagee,fait_partie,Cadeau,Liste WHERE est_partagee.id_groupe = '$id_groupe' AND est_partagee.id_liste = Liste.id_liste AND fait_partie.id_cadeau = Cadeau.id_cadeau AND Liste.id_utilisateur = '$id_util' AND Liste.id_liste = fait_partie.id_liste";
                     $cadeaux = mysqli_query($co,$cadeaux);
                     
@@ -168,6 +171,19 @@
                                             ';
                                 }
                     }
+                    
+                    //déterminer si l'utilisateur est inactif...
+                    $inactif = mysqli_query($co,"SELECT id_utilisateur FROM UtilisateurInactif WHERE id_utilisateur = '$id_util'");
+                    
+                    if(mysqli_num_rows($inactif) >= 1)
+                    {   
+                        //si oui alors afficher le lien pour creer/ajouter un cadeau a cette liste
+                        echo '<form method = "post" action = "../controller/selectionnerCadeauListeInactif.php">
+                            <input type="hidden" name = "id_liste" value ="<?php echo $id_liste;?>" >
+                            <button type="submit"  class="btn btn-outline-danger  my-2 my-sm-0">Ajouter un cadeau</button>
+                        </form>';
+                    }
+                    
                     echo '
                         </div>
                         </div>
