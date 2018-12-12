@@ -29,7 +29,7 @@ require_once('../controller/connect.php');
 		<p>Connectez vous afin d'accéder à toutes les fonctionnalités de notre service</p>
 
 		<label for="inputEmail" class="sr-only">Identifiant</label>
-		<input type="text" name="login" id="inputEmail" class="form-control bootstrap-overrides" placeholder="Identifiant" required autofocus>
+		<input type="text" name="login" id="inputEmail" class="form-control bootstrap-overrides" placeholder="E-mail" required autofocus>
 		<label for="inputPassword" class="sr-only">Password</label>
 		<input type="password" id="inputPassword" name="mdp" class="form-control" placeholder="Mot de passe" required>
 		
