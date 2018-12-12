@@ -47,8 +47,7 @@
     
     while ($row = mysqli_fetch_assoc($result))
     {
-      echo $row['id_utilisateur'].$row['nom'].$row['prenom'];
-        /*$id = $row['id_utilisateur'];
+        $id = $row['id_utilisateur'];
         //si il est ni membre ni invité, alors proposer
         $membres = "SELECT * FROM est_membre WHERE id_groupe = '$id_groupe' AND id_utilisateur = '$id'";
         $membre = mysqli_query($co,$membres);
@@ -62,7 +61,7 @@
             {
                 echo '<input type="checkbox" name = "membre[]" value="'.$id.'"/><label>'.$row['prenom'].' '.$row['nom'].'</label>';echo '<br/>';
             }
-        }*/
+        }
 
     }
     ?>
