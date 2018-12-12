@@ -157,7 +157,7 @@
                     <div class="col-md-4">
                         <div class="card mb-4 box-shadow">
                             <div class="card-body">
-                                <h1 class="display-4 pb-3">'.mysqli_real_escape_string($co,$row['nom']).'</h2>
+                                <h1 class="display-4 pb-0">'.mysqli_real_escape_string($co,$row['nom']).'</h2>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group invisible "> <!-- put invisible if the user is not the owner -->
                                         <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus"></i></button>
@@ -166,14 +166,16 @@
                                     </div>
                                     <small class="text-muted">'.mysqli_num_rows($membre).' membres</small>
                                 </div>
-                                <form method = "post" action = "listes.php">
-                                    <input type="hidden" name = "id_groupe" value = '.$row['id_groupe'].'>
-                                    <button type="submit"  class="btn btn-outline-danger  my-2 my-sm-0">Consulter les listes</button>
-                                </form>
-                                <form method = "post" action = "../controller/quitterGroupe.php">
-                                    <input type="hidden" name = "id_groupe" value = '.$row['id_groupe'].'>
-                                    <button type="submit"  class="btn btn-danger  my-2 my-sm-0">Quitter le groupe</button>
-                                </form>
+                                <div>
+                                    <form class="float-left" method = "post" action = "listes.php">
+                                        <input type="hidden" name = "id_groupe" value = '.$row['id_groupe'].'>
+                                        <button type="submit"  class="btn btn-outline-danger  my-2 my-sm-0">Consulter les listes</button>
+                                    </form>
+                                    <form class="float-right" method = "post" action = "../controller/quitterGroupe.php">
+                                        <input type="hidden" name = "id_groupe" value = '.$row['id_groupe'].'>
+                                        <button type="submit"  class="btn btn-danger  my-2 my-sm-0">Quitter le groupe</button>
+                                    </form>
+                                </div>
                             </div>
                             
                         </div>
