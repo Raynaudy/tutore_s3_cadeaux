@@ -22,10 +22,10 @@ CREATE TABLE Utilisateur(
 CREATE TABLE Cadeau(
         id_cadeau                   Int  Auto_increment  NOT NULL ,
         nom                         Varchar (16) NOT NULL ,
-        description                 Varchar (100) NOT NULL ,
-        prix                        Float NOT NULL ,
-        img                         Varchar (100) NOT NULL ,
-        lien                        Varchar (100) NOT NULL ,
+        description                 Varchar (100),
+        prix                        Float,
+        img                         Varchar (100),
+        lien                        Varchar (100),
         id_utilisateur              Int ,
         id_utilisateur_est_souhaite Int
 	,CONSTRAINT Cadeau_PK PRIMARY KEY (id_cadeau)
