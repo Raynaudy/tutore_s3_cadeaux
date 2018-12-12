@@ -73,7 +73,14 @@
                     error_reporting(E_ALL);
                     ini_set('display_errors', 1);
                     
-                    $id_groupe = $_POST['id_groupe'];
+                    
+                    if ('POST' == $_SERVER['REQUEST_METHOD']) 
+                    {
+                        $id_groupe = $_POST['id_groupe'];
+                        $_SESSION['id_groupe'] = $id_groupe;
+                    }
+                    else $id_groupe = $_SESSION['id_groupe'];
+                    
                     $id_utilisateur = $_SESSION['id_utilisateur'];
                     
                      $liste = mysqli_query($co,"SELECT libelle,Liste.id_liste,Groupe.nom FROM Groupe, Liste, est_partagee WHERE Groupe.id_groupe = '$id_groupe' AND est_partagee.id_groupe = Groupe.id_groupe AND Liste.id_liste = est_partagee.id_liste AND Liste.id_utilisateur = '$id_utilisateur'");
@@ -108,7 +115,12 @@
                   <li>iPoud <i class="far fa-trash-alt float-right"></i></li>
                   <li>earPouds <i class="far fa-trash-alt float-right"></i></li>-->
                 </ul>
-                <span class="text-danger"><i class="fas fa-plus"></i><a class="text-danger" href=""> <u>Ajouter un cadeau</u></a></span>
+                <form method = "post" action = "../controller/selectionnerCadeauListe.php">
+                    <input type="hidden" name = "id_liste" value ="<?php echo $id_liste;?>" >
+                    <button type="submit"  class="btn btn-outline-danger  my-2 my-sm-0">Ajouter un cadeau</button>
+                </form>
+                <!--<span class="text-danger"><i class="fas fa-plus"></i><a class="text-danger" href=""> <u>Ajouter un cadeau</u></a></span>-->
+               
                 <a class="btn btn-primary btn-outline-danger" href="../view/cadeaux.php" role="button">Editer mes cadeaux</a>
               </div>
             </div>
