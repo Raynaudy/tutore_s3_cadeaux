@@ -54,7 +54,7 @@
                     <a class="dropdown-item" href="modifInfos.php">Voir mon profil</a>
                     <a class="dropdown-item" href="#">Créer un compte invité</a>
                     <a class="dropdown-item" href="loginInactif.php">Se loguer en tant que xxx </a>
-                    <a class="dropdown-item" href="login.php">Se déconnecter</a>
+                    <a class="dropdown-item" href="../controller/logout.php">Se déconnecter</a>
                   </div>
                 </div>
               </div>
