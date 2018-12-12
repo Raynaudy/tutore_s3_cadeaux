@@ -99,7 +99,7 @@
                         
                         while($row = mysqli_fetch_assoc($cadeaux))
                         {
-                                 echo '<li>'.$row['nom'].'<i class="far fa-trash-alt float-right"></i></li>';
+                          echo '<li>'.$row['nom'].'<i class="far fa-trash-alt float-right"></i></li>';
                         }
                     ?>
                 
@@ -110,7 +110,7 @@
                   <li>earPouds <i class="far fa-trash-alt float-right"></i></li>-->
                 </ul>
                 <span class="text-danger"><i class="fas fa-plus"></i><a class="text-danger" href=""> <u>Ajouter un cadeau</u></a></span>
-                <a class="btn btn-primary btn-outline-danger" href="#" role="button">Editer mes cadeaux</a>
+                <a class="btn btn-primary btn-outline-danger" href="../view/cadeaux.php" role="button">Editer mes cadeaux</a>
               </div>
             </div>
           </div>
