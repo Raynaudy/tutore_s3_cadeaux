@@ -99,7 +99,7 @@
                         
                         while($row = mysqli_fetch_assoc($cadeaux))
                         {
-                                 echo '<li>'.$row['nom'].'<i class="far fa-trash-alt float-right"></i></li>';
+                          echo '<li>'.$row['nom'].'<i class="far fa-trash-alt float-right"></i></li>';
                         }
                     ?>
                 
