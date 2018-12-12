@@ -6,14 +6,9 @@
             
             header("Location:error503.php");
         }
-?>
-
-
-<?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-require_once('../controller/connect.php');
-session_start();
+  error_reporting(E_ALL);
+  ini_set('display_errors', 1);
+  require_once('../controller/connect.php');
 
 ?>
 
