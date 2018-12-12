@@ -134,7 +134,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form method = "post" action="../controller/modifierMotDePasse.php">
+                        <form method = "post" action="../controller/changerMotDePasse.php">
                         <label for="inputAncienMotDePasse" class="float-left mb-1">Mon ancien mot de passe : </label>
                         <input type="text" id="inputAncienMotDePasse" name="ancienMotDePasse" class="form-control input-text mb-1" placeholder="" required autofocus>
 
@@ -142,7 +142,7 @@
                         <input type="text" id="inputNouveauMotDePasse" name="nouveauMotDePasse" class="form-control input-text mb-1" placeholder="" required>
 
                         <label for="inputConfirmation" class="float-left mb-1">Confirmation : </label>
-                        <input type="text" id="inputConfirmation" name="xonfirmation" class="form-control input-text mb-1" placeholder="" required>
+                        <input type="text" id="inputConfirmation" name="confirmation" class="form-control input-text mb-1" placeholder="" required>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
