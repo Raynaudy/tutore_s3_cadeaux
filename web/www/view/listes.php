@@ -73,7 +73,6 @@
                     error_reporting(E_ALL);
                     ini_set('display_errors', 1);
                     
-                    
                     if ('POST' == $_SERVER['REQUEST_METHOD']) 
                     {
                         $id_groupe = $_POST['id_groupe'];
@@ -143,20 +142,33 @@
                                 ';
                     
                     $id_util = $row['id_utilisateur'];
-                    $cadeaux = "SELECT Cadeau.nom, Cadeau.id_cadeau FROM est_partagee,fait_partie,Cadeau,Liste WHERE est_partagee.id_groupe = '$id_groupe' AND est_partagee.id_liste = Liste.id_liste AND fait_partie.id_cadeau = Cadeau.id_cadeau AND Liste.id_utilisateur = '$id_util' AND Liste.id_liste = fait_partie.id_liste";
+                    $cadeaux = "SELECT Cadeau.nom, Cadeau.id_cadeau, Cadeau.id_utilisateur_est_offert FROM est_partagee,fait_partie,Cadeau,Liste WHERE est_partagee.id_groupe = '$id_groupe' AND est_partagee.id_liste = Liste.id_liste AND fait_partie.id_cadeau = Cadeau.id_cadeau AND Liste.id_utilisateur = '$id_util' AND Liste.id_liste = fait_partie.id_liste";
                     $cadeaux = mysqli_query($co,$cadeaux);
                     
                     while($rowInt = mysqli_fetch_assoc($cadeaux))
                     {
-                               echo ' <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input" value="'.$rowInt['id_cadeau'].'">'.$rowInt['nom'].'
-                                    </label>
-                                    </div>
-                                    ';
+                    'tache_accomplie.png';
+                               
+                               if($rowInt['id_utilisateur_est_offert'] == NULL) 
+                               {
+                                    echo ' <div class="form-check">
+                                            <label class="form-check-label">
+                                                <a href = "../controller/acheterCadeau.php?id_cadeau='.$rowInt['id_cadeau'].'"><img src="img/cadeau_non_achete.png"/></a>&nbsp'.$rowInt['nom'].'
+                                            </label>
+                                            </div>
+                                            ';
+                                }
+                                else
+                                {
+                                     echo ' <div class="form-check">
+                                            <label class="form-check-label">
+                                                <img src="img/cadeau_achete.png"/>&nbsp'.$rowInt['nom'].'
+                                            </label>
+                                            </div>
+                                            ';
+                                }
                     }
                     echo '
-                       
                         </div>
                         </div>
                       ';
