@@ -52,8 +52,8 @@ require_once('../controller/connect.php');
 
     ?>
     
-    <button class="btn btn-lg btn-danger btn-block" type="submit">Créer mon compte !</button>
-    <p><small>Compte existant ? <a class="text-danger" href="login.php">Clique ici !</a></small></p> 
+    <button class="btn btn-lg btn-danger btn-block" type="submit">Créer le compte !</button>
+    <p><small>Retourner à ses groupes ? <a class="text-danger" href="groupe.php">Clique ici !</a></small></p> 
     <p class="mt-3 mb-0 text-muted">&copy; 2018</p>
   </form>
 </body>

@@ -50,12 +50,12 @@ require_once('../controller/connect.php');
 				$result = mysqli_fetch_assoc($result);
 				if (password_verify($mdp, $result['mdp'])) 
 				{
-          $utilisateur = new utilisateur($co,$result['id_utilisateur'],$login,$mdp);
-          header("Location:groupe.php");
+                                    $utilisateur = new utilisateur($co,$result['id_utilisateur'],$login,$mdp);
+                                    header("Location:groupe.php");
 				} 
 				else
 				{
-          echo '<p class="alert alert-danger">Mot de passe incorrect ! Réessayez.</p>';
+                                    echo '<p class="alert alert-danger">Mot de passe incorrect ! Réessayez.</p>';
 				}
 			}
 		}

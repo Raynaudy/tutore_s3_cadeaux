@@ -153,7 +153,7 @@
                                {
                                     echo ' <div class="form-check">
                                             <label class="form-check-label">
-                                                <a href = "../controller/acheterCadeau.php?id_cadeau='.$rowInt['id_cadeau'].'"><img src="img/cadeau_non_achete.png"/></a>&nbsp'.$rowInt['nom'].'
+                                                <a href = "../controller/acheterCadeau.php?id_cadeau='.$rowInt['id_cadeau'].'"><i class="far fa-square"></i></a>&nbsp'.$rowInt['nom'].'
                                             </label>
                                             </div>
                                             ';
@@ -162,7 +162,7 @@
                                 {
                                      echo ' <div class="form-check">
                                             <label class="form-check-label">
-                                                <img src="img/cadeau_achete.png"/>&nbsp'.$rowInt['nom'].'
+                                                <i class="far fa-check-square"></i>'.$rowInt['nom'].'
                                             </label>
                                             </div>
                                             ';
