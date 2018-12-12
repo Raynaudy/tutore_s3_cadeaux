@@ -45,7 +45,6 @@
                <div class="dropdown show btn-lg float-md-right float-lg-right float-xl-right">
                   <a class="btn btn-lg btn-link dropdown-toggle color-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <?php 
-                    session_start(); 
                     echo $_SESSION['prenom']." ".$_SESSION['nom'];    
                     ?>
                   </a>
@@ -84,7 +83,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form method = "post" action="../controller/modifierPrenom.php">
+                        <form method = "post" action="../controller/changerPrenom.php">
                         <label for="inputPrenom" class="float-left mb-1">Mon nouveau prénom : </label>
                         <input type="text" id="inputPrenom" name="prenom" class="form-control input-text mb-1" placeholder="" required autofocus>
                     </div>
@@ -110,7 +109,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form method = "post" action="../controller/modifierNom.php">
+                        <form method = "post" action="../controller/changerNom.php">
                         <label for="inputNom" class="float-left mb-1">Mon nouveau nom : </label>
                         <input type="text" id="inputNom" name="nom" class="form-control input-text mb-1" placeholder="" required autofocus>
                     </div>
