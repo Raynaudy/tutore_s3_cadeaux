@@ -90,7 +90,7 @@
                     $id_liste  = $liste['id_liste'];
                     $nom_groupe  = $liste['nom'];
                     
-                    $_SESSION['id_liste'] = $liste['id_liste'];
+                    //$_SESSION['id_liste'] = $liste['id_liste'];
                     echo mysqli_real_escape_string($co,$liste['libelle']);
                 ?>
               </div>
@@ -99,13 +99,13 @@
                 
                     <?php
                     
-                        $cadeaux = "SELECT Cadeau.nom FROM fait_partie, Cadeau WHERE fait_partie.id_liste  = '$id_liste' AND fait_partie.id_cadeau = Cadeau.id_cadeau";
+                        $cadeaux = "SELECT Cadeau.nom, Cadeau.id_cadeau FROM fait_partie, Cadeau WHERE fait_partie.id_liste  = '$id_liste' AND fait_partie.id_cadeau = Cadeau.id_cadeau";
                         $cadeaux = mysqli_query($co,$cadeaux);
                         
                         
                         while($row = mysqli_fetch_assoc($cadeaux))
                         {
-                          echo '<li>'.$row['nom'].'<i class="far fa-trash-alt float-right"></i></li>';
+                          echo '<li>'.$row['nom'].'<a href = "../controller/supprimerCadeauListe.php?id_cadeau='.$row['id_cadeau'].'&id_liste='.$id_liste.'"><i class="far fa-trash-alt float-right"></i></a></li>';
                         }
                     ?>
                 
