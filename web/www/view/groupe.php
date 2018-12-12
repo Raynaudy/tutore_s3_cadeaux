@@ -170,6 +170,10 @@
                                     <input type="hidden" name = "id_groupe" value = '.$row['id_groupe'].'>
                                     <button type="submit"  class="btn btn-danger  my-2 my-sm-0">Consulter les listes</button>
                                 </form>
+                                <form method = "post" action = "../controller/quitterGroupe.php">
+                                    <input type="hidden" name = "id_groupe" value = '.$row['id_groupe'].'>
+                                    <button type="submit"  class="btn btn-danger  my-2 my-sm-0">Quitter le groupe</button>
+                                </form>
                             </div>
                             
                         </div>
