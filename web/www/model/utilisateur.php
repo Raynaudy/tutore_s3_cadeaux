@@ -33,7 +33,7 @@ class Utilisateur
         $this->mdp = password_hash($this->mdp, PASSWORD_DEFAULT);
         $query = "INSERT INTO UtilisateurActif(id_utilisateur,login,mdp) VALUES ('$this->id','$this->login','$this->mdp')";
         mysqli_query($this->connection, $query);
-        
+        break;
 
       case 4 : //utilisateur existant
         $this->connection = $args[0];
@@ -49,6 +49,8 @@ class Utilisateur
         
         $this->ouvrirSession();
 
+        break;
+
       case 3 : //Creation inactif
         $this->connection = $args[0];
         $this->nom = $args[1];
@@ -57,7 +59,7 @@ class Utilisateur
         $this->id = mysqli_insert_id($this->connection);
         $insertion = mysqli_query($this->connection,"INSERT INTO UtilisateurInactif(id_utilisateur) VALUES ('$this->id')");
 
-        $this->ajouterInactif();
+        break;
     }
   }
 
@@ -70,13 +72,6 @@ class Utilisateur
     $_SESSION['prenom'] = $this->prenom;
     $_SESSION['loggedin'] = true;
 
-  }
-    
-  public function ajouterInactif()
-  {
-    $_SESSION['id_utilisateur_inactif'] = $this->id;
-    $_SESSION['nom_inactif'] = $this->nom;
-    $_SESSION['prenom_inactif'] = $this->prenom;
   }
   
 }
