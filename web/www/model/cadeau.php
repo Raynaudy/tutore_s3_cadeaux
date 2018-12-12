@@ -7,6 +7,7 @@ require_once('../controller/connect.php');
 class Cadeau
 {
     private $connection;
+    private $id;
     private $nom;
     private $description;
     private $prix;
@@ -29,8 +30,15 @@ class Cadeau
                 $this->id_utilisateur_est_souhaite = $args[5];
 
                 $query = "INSERT INTO Cadeau(nom,description,prix,lien,id_utilisateur_est_souhaite) VALUES ('$this->nom','$this->description','$this->prix','$this->lien','$this->id_utilisateur_est_souhaite')";
-                $result = mysqli_query($this->connection, $query);        }
+                $result = mysqli_query($this->connection, $query); 
+                $this->id = mysqli_insert_id($this->connection);
+        }
 
+    }
+    
+    public function getID()
+    {
+        return $this->id;
     }
 }
 ?>
