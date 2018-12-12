@@ -68,6 +68,8 @@ class Utilisateur
     $_SESSION['id_utilisateur'] = $this->id;
     $_SESSION['nom'] = $this->nom;
     $_SESSION['prenom'] = $this->prenom;
+    $_SESSION['loggedin'] = true;
+
   }
     
   public function ajouterInactif()

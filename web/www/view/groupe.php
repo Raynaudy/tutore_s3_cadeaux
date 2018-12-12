@@ -1,11 +1,12 @@
 <?php
+        session_start();
         //si l'utilisateur n'est pas encore connecté
-        if(session_status() == PHP_SESSION_NONE) {
+        if(!(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)) {
+            echo 'redirection';
+            
             header("Location:error503.php");
         }
 ?>
-
-
 
 
 <!DOCTYPE html>
@@ -47,14 +48,14 @@
               <div class="col-sm-2">
                <div class="dropdown show btn-lg float-md-right float-lg-right float-xl-right">
                   <a class="btn btn-lg btn-link dropdown-toggle color-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <?php session_start(); echo $_SESSION['prenom']." ".$_SESSION['nom'];?>
+                    <?php ; echo $_SESSION['prenom']." ".$_SESSION['nom'];?>
                   </a>
 
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <a class="dropdown-item" href="modifInfos.php">Voir mon profil</a>
                     <a class="dropdown-item" href="#">Créer un compte invité</a>
                     <a class="dropdown-item" href="#">Se loguer en tant que xxx </a>
-                    <a class="dropdown-item" href="#">Se déconnecter</a>
+                    <a class="dropdown-item" href="../controller/logout.php">Se déconnecter</a>
                   </div>
                 </div>
               </div>

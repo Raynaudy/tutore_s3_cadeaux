@@ -1,10 +1,12 @@
 <?php
+        session_start();
         //si l'utilisateur n'est pas encore connecté
-        if(session_status() == PHP_SESSION_NONE) {
+        if(!(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)) {
+            echo 'redirection';
+            
             header("Location:error503.php");
         }
 ?>
-
 
 
 <?php
