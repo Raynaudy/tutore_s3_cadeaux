@@ -40,9 +40,9 @@
                 <nav>
                   <div class="btn-group btn-lg" >
                     <a class="btn btn-lg btn-danger active" href="groupe.php">Groupes</a>
-                    <a class="btn btn-lg btn-danger " href="listes.php">Listes</a>
+                    <a class="btn btn-lg btn-danger " href="mesListes.php">Listes</a>
+                    <a class="btn btn-lg btn-danger" href="cadeaux.php">Cadeaux</a>
                    </div>
-                   <a class="btn btn-lg btn-danger" href="cadeaux.php">Cadeaux</a>
                 </nav>
               </div>
               <div class="col-sm-2">
