@@ -99,7 +99,7 @@
                 }
                 echo '</ul>';
                 echo '<form method = "post" action = "../view/selectionnerCadeauListe.php">';
-                echo '<input type="hidden" name = "id_liste" value ="<?php echo $id_liste;?>" >';
+                echo '<input type="hidden" name = "id_liste" value ="'.$id_liste.'" >';
                 echo '<button type="submit"  class="btn btn-outline-danger  my-2 my-sm-0">Ajouter un cadeau</button>';
                 echo '</form>';
                 echo '<!--<span class="text-danger"><i class="fas fa-plus"></i><a class="text-danger" href=""> <u>Ajouter un cadeau</u></a></span>-->';
