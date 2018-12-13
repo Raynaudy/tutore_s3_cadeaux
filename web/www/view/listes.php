@@ -146,13 +146,13 @@
                                 ';
                     
                    
-                    $cadeaux = "SELECT Cadeau.nom, Cadeau.id_cadeau, Cadeau.id_utilisateur_est_offert FROM est_partagee,fait_partie,Cadeau,Liste WHERE est_partagee.id_groupe = '$id_groupe' AND est_partagee.id_liste = Liste.id_liste AND fait_partie.id_cadeau = Cadeau.id_cadeau AND Liste.id_utilisateur = '$id_util' AND Liste.id_liste = fait_partie.id_liste";
+                    $cadeaux = "SELECT Cadeau.nom, Cadeau.id_cadeau, Cadeau.id_utilisateur FROM est_partagee,fait_partie,Cadeau,Liste WHERE est_partagee.id_groupe = '$id_groupe' AND est_partagee.id_liste = Liste.id_liste AND fait_partie.id_cadeau = Cadeau.id_cadeau AND Liste.id_utilisateur = '$id_util' AND Liste.id_liste = fait_partie.id_liste";
                     $cadeaux = mysqli_query($co,$cadeaux);
                     
                     while($rowInt = mysqli_fetch_assoc($cadeaux))
                     {
                     
-                               if($rowInt['id_utilisateur_est_offert'] == NULL) 
+                               if($rowInt['id_utilisateur'] == NULL) 
                                {
                                     echo ' <div class="form-check">
                                             <label class="form-check-label">
