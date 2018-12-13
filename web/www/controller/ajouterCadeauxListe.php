@@ -9,5 +9,5 @@
         mysqli_query($co,"INSERT INTO fait_partie(id_cadeau,id_liste) VALUES ('$selected','$id_liste')");
     }
 
-    header("Location:../view/mesListes.php");
+    header("Location:../view/listes.php");
 ?>

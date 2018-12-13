@@ -8,7 +8,7 @@
   $nom = $_POST['nom'];
   $id = $_SESSION['id_utilisateur'];
 
-  mysqli_query($co,"INSERT INTO liste (libelle,id_utilisateur) VALUES ('$nom','$id')");
+  mysqli_query($co,"INSERT INTO Liste(libelle,id_utilisateur) VALUES ('$nom','$id')");
 
   header("Location:../view/mesListes.php");
 ?>

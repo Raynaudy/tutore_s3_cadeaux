@@ -252,68 +252,6 @@
             
             <!---->
             
-            <!-- ajouter des membres
-            
-            <div class="modal fade" id="modalAjouterMembres" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"> Selectionner des membres à ajouter :</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                
-                    ajouter balises php
-                    
-                    $id_groupe = $_POST['id'];
-                      
-                    echo '<form method = "post" action="../controller/ajouterMembre.php" >';
-                    echo '<input type="hidden" name = "id_groupe" value="'.$id_groupe.'"/>';
-                    echo '<input type="hidden" name = "id_createur" value="'.$_SESSION['id_utilisateur'].'"/>';
-                   
-                    $id = $_SESSION['id_utilisateur'];
-                  
-                    $all = "SELECT id_utilisateur,nom,prenom FROM Utilisateur WHERE id_utilisateur != '$id'";
-                    $result = mysqli_query($co,$all);
-                    
-                   
-                    while ($row = mysqli_fetch_assoc($result))
-                    {
-                        $id = $row['id_utilisateur'];
-                        //si il est ni membre ni invité, alors proposer
-                        $membres = "SELECT * FROM est_membre WHERE id_groupe = '$id_groupe' AND id_utilisateur = '$id'";
-                        $membre = mysqli_query($co,$membres);
-                        
-                        if(mysqli_num_rows($membre) < 1)
-                        {
-                            //déterminer si l'utilisateur est invité ou membre
-                            $invites = "SELECT * FROM est_invite WHERE id_groupe = '$id_groupe' AND id_utilisateur_est_invite = '$id'";
-                            $invite = mysqli_query($co,$invites);
-                            if(mysqli_num_rows($invite) < 1)
-                            {
-                             echo '<input type="checkbox" name = "membre[]" value="'.$id.'"/><label>'.$row['prenom'].' '.$row['nom'].'</label>';echo '<br/>';
-                            }
-                        }
-
-                    }
-                    
-                ajouter balises php
-                   
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Ajouter</button>
-                    </form>
-                </div>
-                </div>
-            </div>
-            </div>
-            
-            
-           -->
-            
             
           </div>
         </div>

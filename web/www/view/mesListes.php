@@ -73,7 +73,7 @@
             ini_set('display_errors', 1);
 
             $id_utilisateur = $_SESSION['id_utilisateur'];
-            $listes = mysqli_query($co,"SELECT * FROM liste WHERE id_utilisateur = '$id_utilisateur'");
+            $listes = mysqli_query($co,"SELECT * FROM Liste WHERE id_utilisateur = '$id_utilisateur'");
 
 
             while($row = mysqli_fetch_assoc($listes))

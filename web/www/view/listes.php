@@ -71,9 +71,9 @@
                 
               $id_utilisateur = $_SESSION['id_utilisateur'];
 
-              $nom_groupe = mysqli_fetch_assoc(mysqli_query($co,"SELECT nom FROM groupe WHERE '$id_groupe' = id_groupe"))['nom'];
+              $nom_groupe = mysqli_fetch_assoc(mysqli_query($co,"SELECT nom FROM Groupe WHERE id_groupe = '$id_groupe'"));
                 
-              $liste = mysqli_query($co,"SELECT liste.id_liste,liste.libelle FROM liste,est_partagee WHERE liste.id_liste = est_partagee.id_liste AND est_partagee.id_groupe = '$id_groupe'");
+              $liste = mysqli_query($co,"SELECT Liste.id_liste,Liste.libelle FROM Liste,est_partagee WHERE Liste.id_liste = est_partagee.id_liste AND est_partagee.id_groupe = '$id_groupe' AND Liste.id_utilisateur = '$id_utilisateur'");
 
               if (mysqli_num_rows($liste) == 0){ // Si l'utilisateur n'a pas de liste dans ce groupe
                 echo '<div class="card-body">';
@@ -137,7 +137,7 @@
         </div>
 
         <div class="col-md-9  h-75">
-          <h2 class="text-center pb-5 "> <?php echo $nom_groupe; ?></h2>
+          <h2 class="text-center pb-5 "> <?php echo $nom_groupe['nom']; ?></h2>
           <div class="container-cards h-100">
             <?php
               $membres = mysqli_query($co,"SELECT Liste.id_utilisateur, Utilisateur.nom, prenom, Liste.id_liste FROM Liste, est_partagee, Utilisateur WHERE Liste.id_liste = est_partagee.id_liste AND Liste.id_utilisateur = Utilisateur.id_utilisateur AND est_partagee.id_groupe = '$id_groupe' AND Utilisateur.id_utilisateur != '$id_utilisateur'");
@@ -147,7 +147,12 @@
               
                 $id_util = $row['id_utilisateur'];
                 $id_liste = $row['id_liste'];
-              
+                
+                $inactif = mysqli_query($co,"SELECT id_utilisateur FROM UtilisateurInactif WHERE id_utilisateur = '$id_util'");
+                if(mysqli_num_rows($inactif) >= 1)
+                {   
+                    $inactif = true;
+                }else $inactif=false;
               
                 echo ' <div class="card mw mr-3 mb-2  mb-2">
                 <div class="card-header">'.mysqli_real_escape_string($co,$row['prenom']).' '.mysqli_real_escape_string($co,$row['nom']).'</div>
@@ -165,8 +170,12 @@
                  {
                   echo ' <div class="form-check">
                   <label class="form-check-label">
-                  <a href = "../controller/acheterCadeau.php?id_cadeau='.$rowInt['id_cadeau'].'"><i class="far fa-square"></i></a>&nbsp'.$rowInt['nom'].'
-                  </label>
+                  <a href = "../controller/acheterCadeau.php?id_cadeau='.$rowInt['id_cadeau'].'"><i class="far fa-square"></i></a>&nbsp'.$rowInt['nom'].'';
+                  if($inactif == true)
+                    echo '<a href = "../controller/supprimerCadeauListe.php?id_cadeau='.$rowInt['id_cadeau'].'&id_liste='.$id_liste.'"><i class="far fa-trash-alt float-right"></i></a></li>';
+                 
+                  echo '
+                    </label>
                   </div>
                   ';
                 }
@@ -182,13 +191,10 @@
               }
               
               //déterminer si l'utilisateur est inactif...
-              $inactif = mysqli_query($co,"SELECT id_utilisateur FROM UtilisateurInactif WHERE id_utilisateur = '$id_util'");
               
-              if(mysqli_num_rows($inactif) >= 1)
-              {   
-                  //si oui alors afficher le lien pour creer/ajouter un cadeau a cette liste
-              echo '<a href = "../view/selectionnerCadeauListeInactif.php?id_liste='.$id_liste.'&id_util='.$id_util.'">Ajouter un cadeau</a>';
-              }
+              
+              if($inactif == true) //si oui alors afficher le lien pour creer/ajouter un cadeau a cette liste
+                echo '<a href = "../view/selectionnerCadeauListeInactif.php?id_liste='.$id_liste.'&id_util='.$id_util.'">Ajouter un cadeau</a>';
               
               echo '
               </div>
