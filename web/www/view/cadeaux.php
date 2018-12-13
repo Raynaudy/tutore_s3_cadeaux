@@ -85,9 +85,13 @@
                         <div class="card mb-4 box-shadow">
                             <div class="card-body">
                                 <h1 class="display-4 pb-3">'.mysqli_real_escape_string($co,$row['nom']).'</h2>
-                                <form class="mt-1 mb-3 text-center" method = "post" action = "listes.php">
-                                    <input type="hidden" name = "id_groupe" value = '.$row['id_cadeau'].'>
+                                <form class="mt-1 mb-3 text-center" method = "post" action = "groupe.php">
+                                    <input type="hidden" name = "id_cadeau" value = '.$row['id_cadeau'].'>
                                     <button type="submit"  class="btn btn-outline-danger  my-2 my-sm-0">Modifier le cadeau</button>
+                                </form>
+                                <form class="mt-1 mb-3 text-center" method = "post" action = "../controller/supprimerCadeau.php">
+                                    <input type="hidden" name = "id_cadeau" value = '.$row['id_cadeau'].'>
+                                    <button type="submit"  class="btn btn-outline-danger  my-2 my-sm-0">Supprimer le cadeau</button>
                                 </form>
                                
                                 
