@@ -100,10 +100,18 @@
                 echo '</ul>';
                 echo '<form method = "post" action = "../view/selectionnerCadeauListe.php">';
                 echo '<input type="hidden" name = "id_liste" value ="'.$id_liste.'" >';
-                echo '<button type="submit"  class="btn btn-outline-danger  my-2 my-sm-0">Ajouter un cadeau</button>';
+                echo '<button type="submit" class="btn btn-outline-danger  my-2 my-sm-0">Ajouter un cadeau</button>';
                 echo '</form>';
                 echo '<!--<span class="text-danger"><i class="fas fa-plus"></i><a class="text-danger" href=""> <u>Ajouter un cadeau</u></a></span>-->';
                 echo '<a class="btn btn-primary btn-outline-danger" href="../view/cadeaux.php" role="button">Editer mes cadeaux</a>';
+                echo '</div>';
+
+                echo '<div class="card-footer">';
+                echo '<form method = "post" action = "../controller/retirerListeGroupe.php">';
+                echo '<button type="submit" class="btn btn-danger  my-2 my-sm-0">Retirer cette liste</button>';
+                echo '<input type="hidden" name = "id_liste" value ="'.$id_liste.'" >';
+                echo '<input type="hidden" name = "id_groupe" value="'.$id_groupe.'">';
+                echo '</form>';
                 echo '</div>';
               }
               ?>
