@@ -88,6 +88,10 @@
                                     <input type="hidden" name = "id_liste" value ="'.$row['id_liste'].'" >
                                     <button type="submit"  class="btn btn-outline-danger  my-2 my-sm-0">Ajouter un cadeau à la liste</button>
                                 </form>
+                                <form class="mt-1 mb-3 text-center" method = "post" action = "../controller/supprimerListe.php">
+                                    <input type="hidden" name = "id_liste" value ="'.$row['id_liste'].'" >
+                                    <button type="submit"  class="btn btn-outline-danger  my-2 my-sm-0">Supprimer la liste</button>
+                                </form>
                             </div>
                         </div>
                     </div>';
