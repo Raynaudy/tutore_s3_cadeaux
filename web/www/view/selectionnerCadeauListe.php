@@ -29,57 +29,17 @@
 
 </head>
 <body class="text-center">
-
-    <!--Créer un cadeau et l'insérer dans la liste-->
-
-  <form class="form-signin rounded border border-danger" method = "post" action="creerCadeauListeInactif.php">
-  <h2 class=" mb-4 mt-1 font-weight-normal">Créer un cadeau et l'ajouter à la liste </h2>
-    <p>Rentrez les informations sur le cadeau : </p>
-    
-    <?php
-    
-    $id_liste = $_GET['id_liste'];
-    $id_inactif = $_GET['id_util'];
-    
-    echo '<input type="hidden" name = "id_liste" value="'.$id_liste.'"/>';
-    echo '<input type="hidden" name = "id_inactif" value="'.$id_inactif.'"/>';
-    
-    echo '
-    <label for="inputNom" class="float-left mb-1">Nom(*) : </label>
-    <input type="text" id="inputNom" name="nom" class="form-control input-text mb-1" placeholder="" required autofocus>
-
-    <label for="inputDesc" class="float-left mb-1">Description :</label>
-    <input type="text" id="inputDesc" name="description" class="form-control bootstrap-overrides mb-1 rounded" placeholder="" autofocus>
-
-    <label for="inputPrix" class="float-left mb-1">Prix :</label>
-    <input type="text" id="inputPrix" name="prix" class="form-control bootstrap-overrides mb-3 rounded" placeholder="">
-
-    <label for="inputLien" class="float-left mb-1">Lien :</label>
-    <input type="text" id="inputLien" name="lien" class="form-control bootstrap-overrides mb-3 rounded" placeholder="">';
-     
-     ?>
-    
-    <button class="btn btn-lg btn-danger btn-block" type="submit">Créer et ajouter !</button>
-    <p><small>Revenir aux listes ? <a class="text-danger" href="../view/listes.php">Clique ici !</a></small></p> 
-    <p class="mt-3 mb-0 text-muted">&copy; 2018</p>
-    </form>
-    
-    
-    
-    <!--Selectionner des cadeaux existants-->
-    
-    <form class="form-signin rounded border border-danger" method = "post" action="ajouterCadeauListeInactif.php">
-  <h2 class=" mb-4 mt-1 font-weight-normal">Ajouter des cadeaux </h2>
+  <form class="form-signin rounded border border-danger" method = "post" action="../controller/ajouterCadeauxListe.php">
+  <h2 class=" mb-4 mt-1 font-weight-normal">Ajoutez des cadeaux à la liste !</h2>
     <p>Selectionner les cadeaux à ajouter : </p>
     
     <?php
     
-    $id_liste = $_GET['id_liste'];
-    $id_inactif = $_GET['id_util'];
-    
+    $id_liste = $_POST['id_liste'];
+    $id_createur = $_SESSION['id_utilisateur'];
     echo '<input type="hidden" name = "id_liste" value="'.$id_liste.'"/>';
     
-    $all = "SELECT id_cadeau,nom FROM Cadeau WHERE id_utilisateur_est_souhaite = '$id_inactif'";
+    $all = "SELECT id_cadeau,nom FROM Cadeau WHERE id_utilisateur_est_souhaite = '$id_createur'";
     $result = mysqli_query($co,$all);
     
     while ($row = mysqli_fetch_assoc($result))
@@ -97,7 +57,7 @@
      ?>
     
     <button class="btn btn-lg btn-danger btn-block" type="submit">Ajouter !</button>
-    <p><small>Revenir aux listes ? <a class="text-danger" href="../view/listes.php">Clique ici !</a></small></p> 
+    <p><small>Pas de cadeaux a ajouter ? Créé en des nouveaux,<a class="text-danger" href="../view/cadeaux.php">Clique ici !</a></small></p> 
     <p class="mt-3 mb-0 text-muted">&copy; 2018</p>
     </form>
 </body>
