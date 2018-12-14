@@ -78,27 +78,37 @@
 
             while($row = mysqli_fetch_assoc($listes))
             {
-                    echo '
-                    <!-- card - group owner -->
-                    <div class="col-md-4">
-                        <div class="card mb-4 box-shadow">
-                            <div class="card-body">
-                                <h1 class="display-4 pb-3">'.mysqli_real_escape_string($co,$row['libelle']).'</h2>
-                                <form class="mt-1 mb-3 text-center" method = "post" action = "../view/selectionnerCadeauListe.php">
-                                    <input type="hidden" name = "id_liste" value ="'.$row['id_liste'].'" >
-                                    <button type="submit"  class="btn btn-outline-danger  my-2 my-sm-0">Ajouter un cadeau à la liste</button>
-                                </form>
-                                <form class="mt-1 mb-3 text-center" method = "post" action = "../controller/supprimerListe.php">
-                                    <input type="hidden" name = "id_liste" value ="'.$row['id_liste'].'" >
-                                    <button type="submit"  class="btn btn-outline-danger  my-2 my-sm-0">Supprimer la liste</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>';
+              $libelle = $row['libelle'];
+              $id_liste = $row['id_liste'];
+              $cadeaux = mysqli_query($co,"SELECT cadeau.nom,cadeau.id_cadeau FROM cadeau,fait_partie WHERE cadeau.id_cadeau = fait_partie.id_cadeau AND fait_partie.id_liste = '$id_liste'");
+              
+              echo '<div class="col-md-3 border-right">';
+                echo '<div class="card h-100">';
+                  echo '<div class="card-header">';
+                    echo '<h1 class="display-4 pb-3">'.$libelle.'</h2>';
+                  echo '</div>';
+                  echo '<div class="card-body">';
+                    echo '<ul>';
+                    while($rowCadeaux = mysqli_fetch_assoc($cadeaux)){
+                      echo '<li>'.$rowCadeaux['nom'].'<a href = "../controller/supprimerCadeauListe.php?id_cadeau='.$rowCadeaux['id_cadeau'].'&id_liste='.$id_liste.'"><i class="far fa-trash-alt float-right"></i></a></li>';
+                    }
+                    echo '</ul>';
+                  echo '</div>';
+                  echo '<div class="card-footer">';
+                    echo '<form class="mt-1 mb-3 text-center" method = "post" action = "../view/selectionnerCadeauListe.php">';
+                      echo '<input type="hidden" name = "id_liste" value ="'.$id_liste.'" >';
+                      echo '<button type="submit"  class="btn btn-outline-danger  my-2 my-sm-0">Ajouter un cadeau à la liste</button>';
+                    echo '</form>';
+                    echo '<form class="mt-1 mb-3 text-center" method = "post" action = "../controller/supprimerListe.php">';
+                      echo '<input type="hidden" name = "id_liste" value ="'.$id_liste.'" >';
+                      echo '<button type="submit"  class="btn btn-outline-danger  my-2 my-sm-0">Supprimer la liste</button>';
+                     echo '</form>';
+                  echo '</div>';
+                echo '</div>';
+              echo '</div>';
 
-            }
-
-            ?>
+              }
+              ?>
 
             <!-- has to be the last card -->
             <div class="col-md-4">
