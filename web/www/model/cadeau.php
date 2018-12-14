@@ -29,10 +29,10 @@ class Cadeau
                 $this->prix = floatval($args[3]);
                 $this->lien = $args[4];
                 $this->img = $args[5];
-                $this->id_utilisateur_est_souhaite = $args[5];
+                $this->id_utilisateur_est_souhaite = $args[6];
 
                 $query = "INSERT INTO Cadeau(nom,description,prix,lien,img,id_utilisateur_est_souhaite) VALUES ('$this->nom','$this->description','$this->prix','$this->lien','$this->img','$this->id_utilisateur_est_souhaite')";
-                $result = mysqli_query($this->connection, $query); 
+                $result = mysqli_query($this->connection, $query);
                 $this->id = mysqli_insert_id($this->connection);
         }
 
