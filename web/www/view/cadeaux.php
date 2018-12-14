@@ -79,18 +79,24 @@
 
             while($row = mysqli_fetch_assoc($cadeaux))
             {
+            
+                    $id_cadeau = $row['id_cadeau'];
                     echo '
                     <!-- card - group owner -->
                     <div class="col-md-4">
                         <div class="card mb-4 box-shadow">
                             <div class="card-body">
                                 <h1 class="display-4 pb-3">'.mysqli_real_escape_string($co,$row['nom']).'</h2>
+                                <form method="post" action="voirCadeau.php">
+                                    <input type="hidden" name = "id_cadeau" value='.$id_cadeau.'>
+                                    <button type="submit" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus"></i></button>
+                                </form>
                                 <form class="mt-1 mb-3 text-center" method = "post" action = "../controller/modifierCadeau.php">
-                                    <input type="hidden" name = "id_cadeau" value = '.$row['id_cadeau'].'>
+                                    <input type="hidden" name = "id_cadeau" value = '.$id_cadeau.'>
                                     <button type="submit"  class="btn btn-outline-danger  my-2 my-sm-0">Modifier le cadeau</button>
                                 </form>
                                 <form class="mt-1 mb-3 text-center" method = "post" action = "../controller/supprimerCadeau.php">
-                                    <input type="hidden" name = "id_cadeau" value = '.$row['id_cadeau'].'>
+                                    <input type="hidden" name = "id_cadeau" value = '.$id_cadeau.'>
                                     <button type="submit"  class="btn btn-outline-danger  my-2 my-sm-0">Supprimer le cadeau</button>
                                 </form>
                                
@@ -98,7 +104,7 @@
                             </div>
                         </div>
                     </div>';
-
+                    
             }
 
             ?>
@@ -134,6 +140,8 @@
                                 <input type="text" id="inputPrix" name="prix" class="form-control input-text mb-1" placeholder="">
                                 <label for="inputNom" class="float-left mb-1">Lien : </label>
                                 <input type="text" id="inputLien" name="lien" class="form-control input-text mb-1" placeholder="">
+                                <label for="inputImg" class="float-left mb-1">Image (lien) : </label>
+                                <input type="text" id="inputImg" name="img" class="form-control input-text mb-1" placeholder="">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -144,6 +152,7 @@
                 </div>
             </div>
 
+            
             <!---->
 
             <!-- ajouter des membres

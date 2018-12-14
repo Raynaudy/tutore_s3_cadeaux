@@ -9,8 +9,9 @@
   $description = $_POST['description'];
   $prix = $_POST['prix'];
   $lien = $_POST['lien'];
+  $img = $_POST['img'];
 
-  $cadeau = new cadeau($co,$nom,$description,$prix,$lien,$_SESSION['id_utilisateur']);
+  $cadeau = new cadeau($co,$nom,$description,$prix,$img,$lien,$_SESSION['id_utilisateur']);
 
   header("Location:../view/cadeaux.php");
 ?>

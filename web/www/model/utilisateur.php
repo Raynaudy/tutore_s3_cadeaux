@@ -33,6 +33,9 @@ class Utilisateur
         $this->mdp = password_hash($this->mdp, PASSWORD_DEFAULT);
         $query = "INSERT INTO UtilisateurActif(id_utilisateur,login,mdp) VALUES ('$this->id','$this->login','$this->mdp')";
         mysqli_query($this->connection, $query);
+        
+        $this->ouvrirSession();
+        
         break;
 
       case 4 : //utilisateur existant

@@ -5,12 +5,13 @@ ini_set('display_errors', 1);
 require_once('../controller/connect.php');
 
 $id_cadeau = $_POST['id_cadeau'];
-$result = mysqli_query($co,"SELECT nom,description,prix,lien FROM Cadeau WHERE id_cadeau = '$id_cadeau'");
+$result = mysqli_query($co,"SELECT nom,description,prix,lien,img FROM Cadeau WHERE id_cadeau = '$id_cadeau'");
 $result = mysqli_fetch_assoc($result);
 $nom = $result['nom'];
 $description = $result['description'];
 $prix = $result['prix'];
 $lien = $result['lien'];
+$img = $result['img'];
 
 ?>
 
@@ -39,17 +40,20 @@ $lien = $result['lien'];
     <label for="inputNom" class="float-left mb-1">Nom : </label>
     <input type="text" id="inputNom" name="nom" value ="<?php  echo $nom;  ?>" class="form-control input-text mb-1" placeholder="" required autofocus>
     
-    <label for="inputPrenom" class="float-left mb-1">Description : </label>
+    <label for="inputDesc" class="float-left mb-1">Description : </label>
     <input type="text" id="inputDesc" name="desc" value ="<?php  echo $description;  ?>" class="form-control input-text mb-1" placeholder="" autofocus>
 
-    <label for="inputEmail" class="float-left mb-1">Prix :</label>
+    <label for="inputPrix" class="float-left mb-1">Prix :</label>
     <input type="text" id="inputPrix" name="prix" value ="<?php  echo $prix;  ?>" class="form-control bootstrap-overrides mb-1 rounded" placeholder="" autofocus>
 
-    <label for="inputPassword" class="float-left mb-1">Lien :</label>
+    <label for="inputLien" class="float-left mb-1">Lien :</label>
     <input type="text" id="inputLien" name="lien" value ="<?php  echo $lien;  ?>" class="form-control bootstrap-overrides mb-3 rounded" placeholder="">
     
+    <label for="inputImg" class="float-left mb-1">Image :</label>
+    <input type="text" id="inputImg" name="img" value ="<?php  echo $img;  ?>" class="form-control bootstrap-overrides mb-3 rounded" placeholder="">
+    
     <button class="btn btn-lg btn-danger btn-block" type="submit">Modifier ce cadeau !</button>
-    <p><small>Plus envie de le modifier ? <a class="text-danger" href="../controller/cadeaux.php">Clique ici !</a></small></p> 
+    <p><small>Plus envie de le modifier ? <a class="text-danger" href="../view/cadeaux.php">Clique ici !</a></small></p> 
     <p class="mt-3 mb-0 text-muted">&copy; 2018</p>
   </form>
 </body>
