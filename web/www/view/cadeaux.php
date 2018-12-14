@@ -87,15 +87,15 @@
                         <div class="card mb-4 box-shadow">
                             <div class="card-body">
                                 <h1 class="display-4 pb-3">'.mysqli_real_escape_string($co,$row['nom']).'</h2>
-                                <form method="post" action="voirCadeau.php">
+                                <form class="mt-1 mb-1 text-center" method="post" action="voirCadeau.php">
                                     <input type="hidden" name = "id_cadeau" value='.$id_cadeau.'>
-                                    <button type="submit" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus"></i></button>
+                                    <button type="submit" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus"></i> de détail</button>
                                 </form>
-                                <form class="mt-1 mb-3 text-center" method = "post" action = "../controller/modifierCadeau.php">
+                                <form class="mt-1 mb-1 text-center" method = "post" action = "../controller/modifierCadeau.php">
                                     <input type="hidden" name = "id_cadeau" value = '.$id_cadeau.'>
                                     <button type="submit"  class="btn btn-outline-danger  my-2 my-sm-0">Modifier le cadeau</button>
                                 </form>
-                                <form class="mt-1 mb-3 text-center" method = "post" action = "../controller/supprimerCadeau.php">
+                                <form class="mt-1 mb-1 text-center" method = "post" action = "../controller/supprimerCadeau.php">
                                     <input type="hidden" name = "id_cadeau" value = '.$id_cadeau.'>
                                     <button type="submit"  class="btn btn-outline-danger  my-2 my-sm-0">Supprimer le cadeau</button>
                                 </form>
