@@ -136,7 +136,7 @@
                                 <input type="text" id="inputLien" name="lien" class="form-control input-text mb-1" placeholder="">
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
                             <button type="submit" class="btn btn-danger">Créer</button>
                             </form>
                         </div>
