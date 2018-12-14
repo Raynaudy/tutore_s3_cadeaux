@@ -61,10 +61,9 @@
               </div>
           </div>
       </div>
-<div class="album py-5">
-    <div class="container">
-
-        <div class="row"> <!-- 3 card per row -->
+<div class="col-md-10  h-75">
+  <h2 class="text-center pb-5 "></h2>
+    <div class="container-cards h-100">
 
             <?php
             require_once('../controller/connect.php');
@@ -85,7 +84,7 @@
               echo '<div class="col-md-3 border-right">';
                 echo '<div class="card h-100">';
                   echo '<div class="card-header">';
-                    echo '<h1 class="display-4 pb-3">'.$libelle.'</h2>';
+                    echo $libelle;
                   echo '</div>';
                   echo '<div class="card-body">';
                     echo '<ul>';
@@ -101,7 +100,7 @@
                     echo '</form>';
                     echo '<form class="mt-1 mb-3 text-center" method = "post" action = "../controller/supprimerListe.php">';
                       echo '<input type="hidden" name = "id_liste" value ="'.$id_liste.'" >';
-                      echo '<button type="submit"  class="btn btn-outline-danger  my-2 my-sm-0">Supprimer la liste</button>';
+                      echo '<button type="submit"  class="btn btn-danger  my-2 my-sm-0">Supprimer la liste</button>';
                      echo '</form>';
                   echo '</div>';
                 echo '</div>';
