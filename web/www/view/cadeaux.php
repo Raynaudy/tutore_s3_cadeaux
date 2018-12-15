@@ -87,9 +87,8 @@
                         <div class="card mb-4 box-shadow">
                             <div class="card-body">
                                 <h1 class="display-4 pb-3">'.mysqli_real_escape_string($co,$row['nom']).'</h2>
-                                <form class="mt-1 mb-1 text-center" method="post" action="voirCadeau.php">
-                                    <input type="hidden" name = "id_cadeau" value='.$id_cadeau.'>
-                                    <button type="submit" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus"></i> de détail</button>
+                                <form class="mt-1 mb-1 text-center">
+                                <button type="button" data-toggle="modal" data-target="#modalVoirCadeau'.$id_cadeau.'"class="btn btn-outline-danger  my-2 my-sm-0">+ de détails</button>
                                 </form>
                                 <form class="mt-1 mb-1 text-center" method = "post" action = "../controller/modifierCadeau.php">
                                     <input type="hidden" name = "id_cadeau" value = '.$id_cadeau.'>
@@ -97,12 +96,32 @@
                                 </form>
                                 <form class="mt-1 mb-1 text-center" method = "post" action = "../controller/supprimerCadeau.php">
                                     <input type="hidden" name = "id_cadeau" value = '.$id_cadeau.'>
-                                    <button type="submit"  class="btn btn-outline-danger  my-2 my-sm-0">Supprimer le cadeau</button>
+                                    <button type="submit"  class="btn btn-danger  my-2 my-sm-0">Supprimer le cadeau</button>
                                 </form>
                                
                                 
                             </div>
                         </div>
+                    </div>';
+
+                    echo '
+                    <div class="modal fade" id="modalVoirCadeau'.$id_cadeau.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Détails du cadeau</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <p> Description : '.$row['description'].'</p>
+                            <p> Prix : '.$row['prix'].'</p>
+                            <p> Lien : '.$row['lien'].'</p>
+                            <img src="'.$row['img'].'" class=img-fluid">
+                          </div>
+                        </div>
+                      </div>
                     </div>';
                     
             }
