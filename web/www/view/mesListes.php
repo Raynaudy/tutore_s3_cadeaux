@@ -61,7 +61,7 @@
               </div>
           </div>
       </div>
-<div class="col-md-10  h-75">
+<div class="h-75">
   <h2 class="text-center pb-5 "></h2>
     <div class="container-cards h-100">
 
@@ -81,7 +81,7 @@
               $id_liste = $row['id_liste'];
               $cadeaux = mysqli_query($co,"SELECT cadeau.nom,cadeau.id_cadeau FROM cadeau,fait_partie WHERE cadeau.id_cadeau = fait_partie.id_cadeau AND fait_partie.id_liste = '$id_liste'");
               
-              echo '<div class="col-md-3 border-right">';
+              echo '<div class="col-md-2">';
                 echo '<div class="card h-100">';
                   echo '<div class="card-header">';
                     echo $libelle;
@@ -110,7 +110,7 @@
               ?>
 
             <!-- has to be the last card -->
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <a data-toggle="modal" data-target="#modalCreerListe" class="d-block nounderline">
                     <div class="card mb-4 box-shadow">
                         <div class="card-body">
