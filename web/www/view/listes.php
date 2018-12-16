@@ -79,6 +79,9 @@
                 echo '<div class="card-body">';
                 echo '<button type="button" data-toggle="modal" data-target="#modalAjouterListe"class="btn btn-outline-danger  my-2 my-sm-0">Ajouter une liste au groupe</button>';
                 echo '</div>';
+                echo '<div class="card-footer">';
+                echo '<button type="button" data-toggle="modal" data-target="#modalAjouterListeInactif"class="btn btn-outline-danger  my-2 my-sm-0">Ajouter une liste inactif</button>';
+                echo '</div>';
               }
               else { //Si l'utilisateur a une liste
                 $liste = mysqli_fetch_assoc($liste);
@@ -107,6 +110,7 @@
                 echo '</div>';
 
                 echo '<div class="card-footer">';
+                echo '<button type="button" data-toggle="modal" data-target="#modalAjouterListe"class="btn btn-outline-danger  my-2 my-sm-0">Ajouter une liste inactif</button>';
                 echo '<form method = "post" action = "../controller/retirerListeGroupe.php">';
                 echo '<button type="submit" class="btn btn-danger  my-2 my-sm-0">Retirer cette liste</button>';
                 echo '<input type="hidden" name = "id_liste" value ="'.$id_liste.'" >';
@@ -132,6 +136,32 @@
               <form method = "post" action="../controller/ajouterListeGroupe.php">
                 <?php 
                   $listes = mysqli_query($co,"SELECT libelle,id_liste FROM Liste WHERE id_utilisateur = '$id_utilisateur'");
+                  while($row = mysqli_fetch_assoc($listes)){
+                    echo '<li>'.$row['libelle'].'<input type="radio" name="selectedListe" value="'.$row['id_liste'].'"/></li>';
+                  }
+                ?>
+                <input type="hidden" name = "id_groupe" value="<?php echo $id_groupe;?>">
+                <button class="btn btn-primary btn-danger" type="submit">Ajouter au groupe</a>
+              </form>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <!--Ajouter une liste inactif-->
+        <div class="modal fade" id="modalAjouterListeInactif" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Ajouter une liste pour un utilisateur inactif</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+              <form method = "post" action="../controller/ajouterListeGroupeInactif.php">
+                <?php 
+                  $listes = mysqli_query($co,"SELECT liste.libelle,liste.id_liste,utilisateur.prenom, utilisateur.nom FROM Liste,Utilisateur,UtilisateurInactif WHERE liste.id_utilisateur = utilisateur.id_utilisateur AND utilisateur.id_utilisateur = utilisateurInactif.id_utilisateur");
                   while($row = mysqli_fetch_assoc($listes)){
                     echo '<li>'.$row['libelle'].'<input type="radio" name="selectedListe" value="'.$row['id_liste'].'"/></li>';
                   }
