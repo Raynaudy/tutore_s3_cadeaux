@@ -15,8 +15,9 @@
         }
         else
         {
+            $hash = md5(rand(0,1000));
              
-            mysqli_query($co,"INSERT INTO est_invite(id_utilisateur,id_groupe,id_utilisateur_est_invite) VALUES ('$id_createur','$id_groupe','$selected')");
+            mysqli_query($co,"INSERT INTO est_invite(id_utilisateur,id_groupe,hash,id_utilisateur_est_invite) VALUES ('$id_createur','$id_groupe','$hash','$selected')");
             //envoyer un mail
             //récupérer l'email 
             $result = mysqli_query($co,"SELECT login FROM UtilisateurActif WHERE id_utilisateur = '$selected'");
@@ -26,13 +27,13 @@
             
             $message = '
                         You have received a new invitation to join a group !
-                        
+                        </br>
                         Please click this link to accept the invitation :
-                        <a href="localhost/view/groupe.php">localhost/view/groupe.php</a>
+                        <a href="http://localhost/controller/accepterMailMembre.php?id_groupe='.$id_groupe.'&id_utilisateur='.$selected.'&hash='.$hash.'">Click here</a>
                         
                         ';
                      
-            $header = 'Content-type: text/html; charset=iso-8859-1'."\r\n";
+            $header = 'Content-type: text/html; charset=utf-8'."\r\n";
             $header .= 'From: GiftList <giftlist@christmas.com>';
            
             mail($to,$subject,$message,$header);
