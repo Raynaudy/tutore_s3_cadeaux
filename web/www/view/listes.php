@@ -110,7 +110,7 @@
                 echo '</div>';
 
                 echo '<div class="card-footer">';
-                echo '<button type="button" data-toggle="modal" data-target="#modalAjouterListe"class="btn btn-outline-danger  my-2 my-sm-0">Ajouter une liste inactif</button>';
+                echo '<button type="button" data-toggle="modal" data-target="#modalAjouterListeInactif"class="btn btn-outline-danger  my-2 my-sm-0">Ajouter une liste inactif</button>';
                 echo '<form method = "post" action = "../controller/retirerListeGroupe.php">';
                 echo '<button type="submit" class="btn btn-danger  my-2 my-sm-0">Retirer cette liste</button>';
                 echo '<input type="hidden" name = "id_liste" value ="'.$id_liste.'" >';
