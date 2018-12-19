@@ -32,7 +32,7 @@
 
     <!--Créer un cadeau et l'insérer dans la liste-->
 
-  <form class="form-signin rounded border border-danger" method = "post" action="creerCadeauListeInactif.php">
+  <form class="form-signin rounded border border-danger" method = "post" action="../controller/creerCadeauListeInactif.php">
   <h2 class=" mb-4 mt-1 font-weight-normal">Créer un cadeau et l'ajouter à la liste </h2>
     <p>Rentrez les informations sur le cadeau : </p>
     
@@ -55,7 +55,10 @@
     <input type="text" id="inputPrix" name="prix" class="form-control bootstrap-overrides mb-3 rounded" placeholder="">
 
     <label for="inputLien" class="float-left mb-1">Lien :</label>
-    <input type="text" id="inputLien" name="lien" class="form-control bootstrap-overrides mb-3 rounded" placeholder="">';
+    <input type="text" id="inputLien" name="lien" class="form-control bootstrap-overrides mb-3 rounded" placeholder="">
+    
+     <label for="inputImg" class="float-left mb-1">Lien pour l\'image :</label>
+    <input type="text" id="inputImg" name="img" class="form-control bootstrap-overrides mb-3 rounded" placeholder="">';
      
      ?>
     

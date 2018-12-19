@@ -11,8 +11,9 @@
   $description = $_POST['description'];
   $prix = $_POST['prix'];
   $lien = $_POST['lien'];
-
-  $cadeau = new cadeau($co,$nom,$description,$prix,$lien,$id_util);
+  $img = $_POST['img'];
+  
+  $cadeau = new cadeau($co,$nom,$description,$prix,$lien,$img,$id_util);
   $id_cadeau = $cadeau->getID();
   
   mysqli_query($co,"INSERT INTO fait_partie(id_cadeau,id_liste) VALUES ('$id_cadeau','$id_liste')");

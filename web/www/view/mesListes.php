@@ -1,7 +1,8 @@
 <?php
         session_start();
         //si l'utilisateur n'est pas encore connecté
-        if(!(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)) {
+        if(!(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)) 
+        {
             echo 'redirection';
             
             header("Location:error503.php");
@@ -73,13 +74,12 @@
 
             $id_utilisateur = $_SESSION['id_utilisateur'];
             $listes = mysqli_query($co,"SELECT * FROM Liste WHERE id_utilisateur = '$id_utilisateur'");
-
-
+            
             while($row = mysqli_fetch_assoc($listes))
             {
               $libelle = $row['libelle'];
               $id_liste = $row['id_liste'];
-              $cadeaux = mysqli_query($co,"SELECT cadeau.nom,cadeau.id_cadeau FROM cadeau,fait_partie WHERE cadeau.id_cadeau = fait_partie.id_cadeau AND fait_partie.id_liste = '$id_liste'");
+              $cadeaux = mysqli_query($co,"SELECT Cadeau.nom,Cadeau.id_cadeau FROM Cadeau,fait_partie WHERE Cadeau.id_cadeau = fait_partie.id_cadeau AND fait_partie.id_liste = '$id_liste'");
               
               echo '<div class="col-md-3">';
                 echo '<div class="card h-100">';
