@@ -139,13 +139,33 @@
                                           <input type="hidden" name="id" value = '.$row['id_groupe'].'>
                                           <button type="submit" class="btn btn-sm btn-outline-secondary "><i class="fas fa-minus"></i></button>
                                         </form>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Renommer</button>
+                                        <button type="button" data-toggle="modal" data-target="#modalRenommerGroupe" class="btn btn-sm btn-outline-secondary">Renommer</button>
                                     </div>
                                     <small class="text-muted">'.mysqli_num_rows($membre).' membres</small>
                                 </div>
                                 
                             </div>
                         </div>
+                    </div>
+
+                    <div class="modal fade" id="modalRenommerGroupe" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Renommer le groupe
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                              </button>
+                          </div>
+                          <div class="modal-body">
+                            <form method = "post" action="../controller/renommerGroupe.php">
+                              <input type="text" name="new_name">
+                              <input type="hidden" name = "id_groupe" value="'.$row['id_groupe'].'">
+                              <button class="btn btn-primary btn-danger" type="submit">Renommer</button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
                     </div>';
                 }
                 elseif($est_membre === true)
